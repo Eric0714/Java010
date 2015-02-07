@@ -81,5 +81,10 @@ public class Main {
         for (int i = 0; i < myArray.length; i++) {
             System.out.println(myArray[i]);
         }*/
+
+        //做错的题
+        /*for (int i = 1; i <= 3; i++)
+            System.out.println("How many lines");
+            System.out.println("are printed?");*/
     }
 }
