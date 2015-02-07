@@ -130,5 +130,18 @@ public class Main {
             }
             System.out.println();
         }*/
+        //当每行包含三个符号时，if的复杂度增加
+        /*int n=4;
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <=4*n-2 ; j++) {
+                if (j<=2*i-2){
+                    System.out.print("\\");
+                }else if (j>=4*n+1-2*i && j<=4*n-2){
+                    System.out.print("/");
+                }else
+                    System.out.print("!");
+            }
+            System.out.println();
+        }*/
     }
 }
