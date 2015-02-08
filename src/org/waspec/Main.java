@@ -86,5 +86,28 @@ public class Main {
         /*for (int i = 1; i <= 3; i++)
             System.out.println("How many lines");
             System.out.println("are printed?");*/
+
+        //打印等腰三角形
+        /*for (int i = 1; i <= 10; i++) {
+            for (int j = 1; j <= 9 + i; j++) {       //首先找出j的取值范围(一般均是i的函数)
+                if (j <= 10 - i) {                  //接着找出j在什么情况下打印什么(通常也是i的函数)
+                    System.out.print(" ");
+                } else {
+                    System.out.print("*");
+                }
+            }
+            System.out.println();
+        }*/
+
+        //打印等腰三角形的另一种写法                   //对于二维图形的打印一般均有这么两种写法
+        /*for (int i = 1; i <= 10; i++) {
+            for (int j = 1; j <= 10 - i; j++) {
+                System.out.print(" ");
+            }
+            for (int j = 1; j <= 2 * i - 1; j++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }*/
     }
 }
