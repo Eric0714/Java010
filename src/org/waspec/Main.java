@@ -182,7 +182,7 @@ public class Main {
         //打印矩形中的等边三角形
         /*for (int i = 1; i <=5 ; i++) {
             for (int j = 1; j <=11 ; j++) {
-                if (j<=6-i){
+                if (j<=6-i){                            //考虑两边的边界比考虑中间的边界要容易
                     System.out.print("-");
                 }else if (j>=6+i){
                     System.out.print("-");
