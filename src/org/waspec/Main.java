@@ -192,5 +192,47 @@ public class Main {
             }
             System.out.println();
         }*/
+
+        //二维数组初始化笨办法
+        /*char[][] board=new char[8][8];
+        for (int row = 0; row <8 ; row++) {
+            for (int cell = 0; cell <8 ; cell++) {
+                if (row%2==0){
+                    if (cell%2==0){
+                        board[row][cell]='X';
+                    }else {
+                        board[row][cell]='O';
+                    }
+                }else {
+                    if (cell%2==0){
+                        board[row][cell]='O';
+                    }else {
+                        board[row][cell]='X';
+                    }
+                }
+            }
+            System.out.println();
+        }
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+                System.out.print(board[i][j]);
+            }
+            System.out.println();
+        }*/
+
+        //二维数组初始化聪明解法
+        /*int n=8;
+        char[][] board=new char[8][8];
+        for (int row = 0; row < n; row++) {
+            for (int cell = 0; cell < n; cell++) {
+                board[row][cell]= (row+cell)%2==0?'X':'O';
+            }
+        }
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+                System.out.print(board[i][j]);
+            }
+            System.out.println();
+        }*/
     }
 }
