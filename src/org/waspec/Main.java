@@ -222,14 +222,14 @@ public class Main {
 
         //二维数组初始化聪明解法
         /*int n=8;
-        char[][] board=new char[8][8];
+        char[][] board=new char[n][n];
         for (int row = 0; row < n; row++) {
             for (int cell = 0; cell < n; cell++) {
                 board[row][cell]= (row+cell)%2==0?'X':'O';
             }
         }
-        for (int i = 0; i < 8; i++) {
-            for (int j = 0; j < 8; j++) {
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
                 System.out.print(board[i][j]);
             }
             System.out.println();
