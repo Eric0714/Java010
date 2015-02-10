@@ -285,6 +285,12 @@ public class Main {
         }
         System.out.println(charArray);*/
 
+         //''和""造成数据类型不同，因而操作也不同
+        /*System.out.print(1 + 'x' + 2 + "=" + 1 * 2 + '\t');
+        System.out.println(1 + "x" + 2 + "=" + 1 * 2 + '\t');
+        System.out.println('x');
+        System.out.println('x'+'y');*/
+
     }
 }
 /*class Reverse{
