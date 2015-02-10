@@ -193,7 +193,7 @@ public class Main {
             System.out.println();
         }*/
 
-        //二维数组初始化笨办法
+        //二维数组XOXO初始化笨办法
         /*char[][] board=new char[8][8];
         for (int row = 0; row <8 ; row++) {
             for (int cell = 0; cell <8 ; cell++) {
@@ -228,15 +228,13 @@ public class Main {
                 board[row][cell]= (row+cell)%2==0?'X':'O';
             }
         }
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                System.out.print(board[i][j]);
-            }
-            System.out.println();
+        for (int row = 0; row < n; row++) {
+            String rowString = new String(board[row]);
+            System.out.println(rowString);
         }*/
 
         //二维数组的理解
-        /*int n=5;
+        /*int n=3;
         int[][] myArray = new int[n][n];
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
@@ -286,6 +284,7 @@ public class Main {
             }
         }
         System.out.println(charArray);*/
+
     }
 }
 /*class Reverse{
