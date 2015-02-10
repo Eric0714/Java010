@@ -159,5 +159,38 @@ public class Main {
         }
         System.out.println(result);*/
 
+        //三重循环打印重复数字
+        /*int n=5;
+        for (int i = 1; i <= n; i++) {
+            for (int k = 9; k >=0; k--) {
+                for (int l = 1; l <= n; l++) {
+                    System.out.print(k);
+                }
+            }
+            System.out.println();
+        }*/
+
+        /*for (int i = 1; i <= 4; i++) {
+            for (int k = 9; k >0; k--) {
+                for (int l = 1; l <= k; l++) {
+                    System.out.print(k);
+                }
+            }
+            System.out.println();
+        }*/
+
+        //打印矩形中的等边三角形
+        /*for (int i = 1; i <=5 ; i++) {
+            for (int j = 1; j <=11 ; j++) {
+                if (j<=6-i){
+                    System.out.print("-");
+                }else if (j>=6+i){
+                    System.out.print("-");
+                }else {
+                    System.out.print(2 * i - 1);
+                }
+            }
+            System.out.println();
+        }*/
     }
 }
