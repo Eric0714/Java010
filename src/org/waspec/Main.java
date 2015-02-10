@@ -291,6 +291,32 @@ public class Main {
         System.out.println('x');
         System.out.println('x'+'y');*/
 
+        //foreach用法，迭代变量是数组元素的一个副本
+        /*int[] myArray = new int[10];
+        for (int i = 0; i < myArray.length; i++) {
+            myArray[i]=i*10;
+        }
+        for (int finger : myArray){
+            System.out.println(finger);
+        }
+        for (int item:myArray){
+            item--;
+        }
+        for (int e:myArray){
+            System.out.println(e);
+        }*/
+        //foreach用法，当数组元素为引用类型变量时的不同
+        /*Student[] students = new Student[10];
+        for (int i = 0; i < 10; i++) {
+            students[i]=new Student();
+            students[i].score=i*10;
+        }
+        for (Student finger : students){
+            finger.score=finger.score+1;
+        }
+        for (Student finger : students){
+            System.out.println(finger.score);
+        }*/
     }
 }
 /*class Reverse{
@@ -304,4 +330,8 @@ public class Main {
             end--;
         }
     }
+}*/
+
+/*class Student{
+    public int score;
 }*/
