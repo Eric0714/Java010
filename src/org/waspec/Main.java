@@ -130,23 +130,34 @@ public class Main {
             }public class Strange {
     public static final int MAX = 5;
 
-    public static void unknown() {
-        int number = 0;
-        for (int count = MAX; count >= 1; count--) {
-            number += (count * count);
-        }
-
-        System.out.println("The result is: " + number);
-    }
-
-    public static void main(String[] args) {
-        unknown();
-    }
-}
+    //当每行包含三个符号时，if的复杂度增加
+        /*int n=4;
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <=4*n-2 ; j++) {
+                if (j<=2*i-2){
+                    System.out.print("\\");
+                }else if (j>=4*n+1-2*i && j<=4*n-2){
+                    System.out.print("/");
+                }else
+                    System.out.print("!");
+            }
             System.out.println();
         }*/
 
-
+        //Fibonacci数列
+        /*int result=0;
+        int n=12;
+        int small=1, big=1;
+        if (n<=2){
+            result=1;
+        }else {
+            for (int i =3; i <= n; i++) {                //i用来计下当前index，small记录较小的数，big记录较大的数
+                result=small+big;
+                small=big;                              //每次算完之后small移向big,big移向result的位置，result移向下一个位置
+                big=result;
+            }
+        }
+        System.out.println(result);*/
 
     }
 }
