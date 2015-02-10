@@ -234,5 +234,22 @@ public class Main {
             }
             System.out.println();
         }*/
+
+        /*int n=5;
+        int[][] myArray = new int[n][n];
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                myArray[i][j]=i+j;
+            }
+        }
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                System.out.print(myArray[i][j]);
+            }
+            System.out.println();
+        }
+        for (int i = 0; i < n; i++) {         //二堆数组中，第一维数组里存的是地址(数组类型变量)，每一个地址都指向一个第二维的数组，二维数组的本质是“数组的数组”
+            System.out.println(myArray[i]);
+        }*/
     }
 }
