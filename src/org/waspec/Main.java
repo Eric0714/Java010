@@ -235,6 +235,7 @@ public class Main {
             System.out.println();
         }*/
 
+        //二维数组的理解
         /*int n=5;
         int[][] myArray = new int[n][n];
         for (int i = 0; i < n; i++) {
