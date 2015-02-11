@@ -254,6 +254,49 @@ public class Main {
         }
         System.out.println(myArray);*/
 
-
+        //使用字符数组按单词反转字符串(上课后自己练习写的)
+        /*String string = "this is a correct but not an excellent code";
+        char[] charArray = string.toCharArray();
+        System.out.println(charArray);        //字符数组可以通过数组类型变量直接访问(注意与上题的不同)
+        Reverse.reverse(charArray, 0, charArray.length - 1);    //需要调用reverse函数
+        System.out.println(charArray);
+        int start = 0;
+        int end;
+        for (int i = 0; i < charArray.length; i++) {
+            if (charArray[i] == ' ') {
+                end = i;
+                Reverse.reverse(charArray, start, end - 1);
+                start = end + 1;
+            }
+        }
+        Reverse.reverse(charArray, start, charArray.length - 1);
+        System.out.println(charArray);*/
+        //老师的解法
+        /*int startIndex = 0;
+        int endIndex = 0;
+        for (int i = 0; i < charArray.length; i++) {
+            if (charArray[i] == ' ') {
+                endIndex = i - 1;
+                Reverse.reverse(charArray, startIndex, endIndex);
+                startIndex = i + 1;
+            } else if (i == charArray.length - 1) {
+                endIndex = i;
+                Reverse.reverse(charArray, startIndex, endIndex);
+                startIndex = i + 1;
+            }
+        }
+        System.out.println(charArray);*/
     }
 }
+/*class Reverse{
+    public static void reverse(char[] charArray, int start, int end){
+        while (start<end){
+            char temp;
+            temp=charArray[start];
+            charArray[start]=charArray[end];
+            charArray[end]=temp;
+            start++;
+            end--;
+        }
+    }
+}*/
