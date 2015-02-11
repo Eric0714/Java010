@@ -317,6 +317,23 @@ public class Main {
         for (Student finger : students){
             System.out.println(finger.score);
         }*/
+        //引用变量初始赋值时只能用for的index用法，不能用foreach赋值
+        /*int n=4;
+        Student[] students = new Student[n];
+        *//*for (Student item : students){
+            item = new Student();   //虽然看似为每个数组元素都创建了一个实例并赋值，但实际上只是为数组元素的copy创建了实例，创建出的实例无法传给真正的数组元素
+            item.score=100;
+        }
+        for (int i = 0; i < n; i++) {
+            System.out.println(students[i].score);
+        }*//*
+        for (int i = 0; i < n; i++) {
+            students[i]=new Student();  //当需要访问真正的数组元素时，必须要用for的index用法，基本类型的数组也是一样
+            students[i].score=i*10;
+        }
+        for (Student e : students){
+            System.out.println(e.score);
+        }*/
     }
 }
 /*class Reverse{
