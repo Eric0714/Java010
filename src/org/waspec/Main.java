@@ -193,7 +193,7 @@ public class Main {
             System.out.println();
         }*/
 
-        //二维数组XOXO初始化笨办法
+        //二维数组棋盘初始化笨办法
         /*char[][] board=new char[8][8];
         for (int row = 0; row <8 ; row++) {
             for (int cell = 0; cell <8 ; cell++) {
@@ -220,7 +220,7 @@ public class Main {
             System.out.println();
         }*/
 
-        //二维数组初始化聪明解法
+        //二维数组棋盘初始化聪明解法
         /*int n=8;
         char[][] board=new char[n][n];
         for (int row = 0; row < n; row++) {
