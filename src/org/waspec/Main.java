@@ -211,7 +211,6 @@ public class Main {
                     }
                 }
             }
-            System.out.println();
         }
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
