@@ -316,7 +316,7 @@ public class Main {
         for (Student finger : students){
             System.out.println(finger.score);
         }*/
-        //引用变量初始赋值时只能用for的index用法，不能用foreach赋值
+        //数组初始赋值时只能用for的index用法，不能用foreach赋值(不管是基本类型的数组还是引用类型的数组)
         /*int n=4;
         Student[] students = new Student[n];
         *//*for (Student item : students){
