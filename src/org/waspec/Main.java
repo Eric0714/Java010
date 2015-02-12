@@ -378,7 +378,7 @@ public class Main {
         /*int score=89;
         switch ((score-1)/20){    //不要忘了有整除
             case 0:              //这里不严谨，当score为-1到-18时也会打印出“D”
-            case 1:
+            case 1:              //case语句里可以继续嵌套switch语句，但平时忌讳if套if,switch套switch
                 System.out.println("D");
                 break;
             case 2:
