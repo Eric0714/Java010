@@ -353,6 +353,26 @@ public class Main {
         for (int item : odds){
             System.out.println(item);
         }*/
+
+        //switch语句的用法和陷阱
+        /*int x=100;
+        switch (x){
+            default:                         //default可以位于任何地方，但一定是最后判断，但平时写代码时default一定放在最后
+                System.out.println("????");
+            case 99:
+            case 98:
+            case 97:
+                System.out.println("就差一点儿");   //不加break的陷阱
+            case 80:
+                System.out.println("还差不少");
+                break;
+            case 60:
+                System.out.println("刚刚及格");
+                break;
+            case 40:
+                System.out.println("你爸电话");
+                break;
+        }*/
     }
 }
 /*class Reverse{
