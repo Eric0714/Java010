@@ -333,6 +333,26 @@ public class Main {
         for (Student e : students){
             System.out.println(e.score);
         }*/
+
+        //把-6到38中的所有奇数放在一个数组中
+        /*int n=0;
+        for (int i = -6; i <=38; i++) {
+            if (i%2==1||i%2==-1){
+                n++;
+            }
+        }
+        System.out.println(n);
+        int[] odds = new int[n];
+        int index=0;
+        for (int i = -6; i <=38; i++) {
+            if (i%2==1||i%2==-1){
+                odds[index]=i;
+                index++;
+            }
+        }
+        for (int item : odds){
+            System.out.println(item);
+        }*/
     }
 }
 /*class Reverse{
