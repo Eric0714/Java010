@@ -373,6 +373,27 @@ public class Main {
                 System.out.println("你爸电话");
                 break;
         }*/
+
+        //利用switch语句将数字分数转换成字母分数(0-40为D，41-60为C，61-80为B，81-100为A)
+        /*int score=89;
+        switch ((score-1)/20){
+            case 0:              //这里不严谨，当score为-1到-18时也会打印出“D”
+            case 1:
+                System.out.println("D");
+                break;
+            case 2:
+                System.out.println("C");
+                break;
+            case 3:
+                System.out.println("B");
+                break;
+            case 4:
+                System.out.println("A");
+                break;
+            default:
+                System.out.println("Error");
+                break;
+        }*/
     }
 }
 /*class Reverse{
