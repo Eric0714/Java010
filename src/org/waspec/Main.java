@@ -404,8 +404,27 @@ public class Main {
             System.out.println(node.payload);
             node=node.next;
         }while (node!=null);*/
+
+        //二叉树
+        /*TreeNode root=new TreeNode(100);
+        root.leftChild=new TreeNode(200);
+        root.rightChild=new TreeNode(300);
+        System.out.println(root.leftChild.payload);
+        System.out.println(root.rightChild.payload);*/
     }
 }
+
+//二叉树
+/*class TreeNode{
+
+    public TreeNode(int payload) {
+        this.payload = payload;
+    }
+
+    public int payload;
+    public TreeNode leftChild;
+    public TreeNode rightChild;
+}*/
 
 //链表
 /*class Node{
