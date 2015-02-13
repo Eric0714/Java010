@@ -397,7 +397,7 @@ public class Main {
 
     }
 }
-/*class Reverse{
+/*class Reverse{               //将字符数组部分元素翻转，在按单词翻转数组中用到
     public static void reverse(char[] charArray, int start, int end){
         while (start<end){
             char temp;
@@ -410,6 +410,6 @@ public class Main {
     }
 }*/
 
-/*class Student{
+/*class Student{             //在二维数组中用到
     public int score;
 }*/
