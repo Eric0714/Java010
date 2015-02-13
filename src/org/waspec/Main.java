@@ -413,6 +413,7 @@ public class Main {
         System.out.println(root.rightChild.payload);*/
 
         //找出int类型数组中最长连续数的长度
+        //上完课之后我自己思考得到的解法
         /*int[] intArray = {1, 1, 1, 2, 2, 3, 3, 3, 3, 3, 3};
         int start=0;
         int end=0;
@@ -429,11 +430,32 @@ public class Main {
             }
         }
         if ((end-start)>length) {      //如果end移动到最后一个数时还没有计数完毕，要在跳出循环后再判断一次最后一批数的长度
-            length = end - start;
+            length = end - start;      //一定不要漏掉考虑边界的情况
         }
         System.out.println(length);*/
-
-
+        //老师的解法
+        /*int[] intArray = {1, 1, 1, 2, 2, 3, 3, 3, 3, 3, 3};
+        int result;
+        if (intArray==null || intArray.length==0){
+            result=0;
+        }
+        int startIndex=0;
+        int endIndex=0;
+        int delta=0;
+        while (endIndex<intArray.length){
+            int temp=0;
+            if (intArray[endIndex]==intArray[startIndex]){      //endIndex每移动一次就判断一次，更新一次temp的值
+                temp=endIndex-startIndex;
+                if (temp>delta){
+                    delta=temp;
+                }
+            }else {
+                startIndex=endIndex;
+            }
+            endIndex++;
+        }
+        result=delta+1;
+        System.out.println(result);*/
     }
 }
 
