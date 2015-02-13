@@ -395,8 +395,48 @@ public class Main {
                 break;
         }*/
 
+        //链表
+        /*Node node = new Node(10);
+        node.next=new Node(20);
+        node.next.next=new Node(30);
+        node.next.next.next=new Node(40);
+        do {
+            System.out.println(node.payload);
+            node=node.next;
+        }while (node!=null);*/
     }
 }
+
+//链表
+/*class Node{
+    public Node(int payload) {
+        this.payload = payload;
+    }
+
+    public int payload;
+    public Node next;
+}*/
+
+//构造器(构造函数)
+/*class Zombie{
+    public Zombie(){
+        this._age =500;
+        this._damage =10;
+    }
+
+    public Zombie(int age, double damage) {
+        this._age = age;
+        this._damage = damage;
+    }
+
+    public int _age;
+    public double _damage;
+    public void study(){
+        System.out.println("I love Java!");
+    }
+}*/
+
+
 /*class Reverse{               //将字符数组部分元素翻转，在按单词翻转数组中用到
     public static void reverse(char[] charArray, int start, int end){
         while (start<end){
