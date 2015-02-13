@@ -411,6 +411,29 @@ public class Main {
         root.rightChild=new TreeNode(300);
         System.out.println(root.leftChild.payload);
         System.out.println(root.rightChild.payload);*/
+
+        //找出int类型数组中最长连续数的长度
+        /*int[] intArray = {1, 1, 1, 2, 2, 3, 3, 3, 3, 3, 3};
+        int start=0;
+        int end=0;
+        int length=0;
+        while (end<intArray.length){
+            if (intArray[end]==intArray[start]){
+                end++;
+            }else {
+                if ((end-start)>length){
+                    length=end-start;
+                }
+                start=end;
+                end++;
+            }
+        }
+        if ((end-start)>length) {      //如果end移动到最后一个数时还没有计数完毕，要在跳出循环后再判断一次最后一批数的长度
+            length = end - start;
+        }
+        System.out.println(length);*/
+
+
     }
 }
 
