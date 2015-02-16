@@ -478,7 +478,7 @@ public class Main {
         if (n==1){
             return 1;
         } else {
-            return 2*hanoi(n-1)+1;
+            return 2*hanoi(n-1)+1;     //写成2*hanoi(n-1)比hanoi(n-1)+hanoi(n-1)速度会快很多
         }
     }
 }*/
