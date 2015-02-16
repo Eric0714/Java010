@@ -400,10 +400,11 @@ public class Main {
         node.next=new Node(20);
         node.next.next=new Node(30);
         node.next.next.next=new Node(40);
+        Node current = node;        //这里增加一个current变量，是为了不破坏原来的node变量。如果直接用node迭代，在循环结束后node失去了对整个链表的引用，整个链表就会成为垃圾
         do {
-            System.out.println(node.payload);
-            node=node.next;
-        }while (node!=null);*/
+            System.out.println(current.payload);
+            current = current.next;
+        }while (current!=null);*/
 
         //二叉树
         /*TreeNode root=new TreeNode(100);
@@ -456,6 +457,8 @@ public class Main {
         }
         result=delta+1;
         System.out.println(result);*/
+
+
     }
 }
 
