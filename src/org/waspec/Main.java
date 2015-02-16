@@ -458,9 +458,25 @@ public class Main {
         result=delta+1;
         System.out.println(result);*/
 
+        //泛型类
+        /*Apple apple = new Apple();
+        Box<Apple> box1= new Box<Apple>();
+        box1.payload = apple;
+        Cake cake = new Cake();
+        Box<Cake> box2 = new Box<Cake>();
+        box2.payload = cake;*/
 
     }
 }
+
+//泛型类
+/*class Apple{
+}
+class Cake{
+}
+class Box<P>{
+    public P payload;
+}*/
 
 //二叉树
 /*class TreeNode{
