@@ -466,8 +466,22 @@ public class Main {
         Box<Cake> box2 = new Box<Cake>();
         box2.payload = cake;*/
 
+        //Hanoi Tower(递归)
+        /*int n=3;
+        System.out.println(Recursion.Hanoi(n));*/
     }
 }
+//Hanoi Tower
+/*class Recursion{
+    public static long Hanoi(int n){
+        if (n==1){
+            return 1;
+        } else {
+            return 2*Hanoi(n-1)+1;
+        }
+    }
+}*/
+
 
 //泛型类
 /*class Apple{
