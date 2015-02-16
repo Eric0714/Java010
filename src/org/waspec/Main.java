@@ -468,17 +468,17 @@ public class Main {
 
         //Hanoi Tower(递归)
         /*int n=3;
-        long result = Recursion.Hanoi(n);
+        long result = Recursion.hanoi(n);
         System.out.println(result);*/
     }
 }
 //Hanoi Tower
 /*class Recursion{
-    public static long Hanoi(int n){
+    public static long hanoi(int n){
         if (n==1){
             return 1;
         } else {
-            return 2*Hanoi(n-1)+1;
+            return 2*hanoi(n-1)+1;
         }
     }
 }*/
