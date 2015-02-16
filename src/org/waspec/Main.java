@@ -468,7 +468,8 @@ public class Main {
 
         //Hanoi Tower(递归)
         /*int n=3;
-        System.out.println(Recursion.Hanoi(n));*/
+        long result = Recursion.Hanoi(n);
+        System.out.println(result);*/
     }
 }
 //Hanoi Tower
