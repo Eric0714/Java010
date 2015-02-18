@@ -470,8 +470,37 @@ public class Main {
         /*int n=3;
         long result = Recursion.hanoi(n);
         System.out.println(result);*/
+
+        //用公式，循环和递归三种方法算出从1加到n的和
+       /* System.out.println(Recursion.add1(100));
+        System.out.println(Recursion.add2(100));
+        System.out.println(Recursion.add3(100));*/
+
     }
 }
+//三种算出从1加到n的方法（公式，循环，递归）
+//注意int类型的范围，所以n也需要被限定在一定的范围内(最好小于2的15次方)
+/*class Recursion{
+    public static int add1(int n){
+        return (1+n)*n/2;
+    }
+
+    public static int add2(int n){
+        int result=0;
+        for (int i = 1; i <=n ; i++) {
+            result += i;
+        }
+        return result;
+    }
+
+    public static int add3(int n){
+        if (n==1){
+            return 1;
+        }else {
+            return add3(n-1)+n;
+        }
+    }
+}*/
 //Hanoi Tower
 /*class Recursion{
     public static long hanoi(int n){
