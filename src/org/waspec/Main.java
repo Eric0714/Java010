@@ -476,8 +476,26 @@ public class Main {
         System.out.println(Recursion.add2(100));
         System.out.println(Recursion.add3(100));*/
 
+        //方法重载
+        /*Calculator calculator = new Calculator();
+        int result=calculator.add(1, 2, 3);
+        System.out.println(result);*/
     }
 }
+//方法重载
+/*class Calculator{
+    public int add(int a, int b){
+        return a+b;
+    }
+
+    public int add(int x, int y, int z ){
+        return x+y+z;
+    }
+
+    public double add(double a, double b){
+        return a+b;
+    }
+}*/
 //三种算出从1加到n的方法（公式，循环，递归）
 //注意int类型的范围，所以n也需要被限定在一定的范围内(最好小于2的15次方)
 /*class Recursion{
