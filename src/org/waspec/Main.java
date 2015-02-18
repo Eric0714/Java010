@@ -480,8 +480,28 @@ public class Main {
         /*Calculator calculator = new Calculator();
         int result=calculator.add(1, 2, 3);
         System.out.println(result);*/
+
+        //构造器重载
+        /*Student student = new Student(1, "Tim");
+        System.out.printf("%s's ID is %d.\n", student.name, student.id);*/
+
     }
 }
+//构造器重载
+/*class Student{
+    public Student(int id) {
+        this.id = id;
+    }
+
+    public Student(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    public int id;
+    public String name;
+}*/
+
 //方法重载
 /*class Calculator{
     public int add(int a, int b){
