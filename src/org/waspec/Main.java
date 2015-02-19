@@ -485,8 +485,52 @@ public class Main {
         /*Student student = new Student(1, "Tim");
         System.out.printf("%s's ID is %d.\n", student.name, student.id);*/
 
+        //接口
+        /*Vehicle vehicle = new Truck();
+        vehicle.run();
+        Weapon myWeapon1 = new Tank();
+        Weapon myWeapon2 = new RocketLauncher();
+        myWeapon1.fire();
+        myWeapon2.fire();*/
+
+
     }
 }
+//接口
+/*interface Vehicle {
+    public abstract void run();
+}
+
+interface Weapon{
+    public abstract void fire();
+}
+
+class Truck implements Vehicle {
+    @Override
+    public void run() {
+        System.out.println("I'm running in the highway.");
+    }
+}
+
+class Tank implements Vehicle, Weapon{
+    @Override
+    public void run() {
+        System.out.println("I'm running in battlefield.");
+    }
+
+    @Override
+    public void fire() {
+        System.out.println("Bang!Bang!Bang!");
+    }
+}
+
+class RocketLauncher implements Weapon{
+    @Override
+    public void fire() {
+        System.out.println("3!2!1!Fire!");
+    }
+}*/
+
 //构造器重载
 /*class Student{
     public Student(int id) {
