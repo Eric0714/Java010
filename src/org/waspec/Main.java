@@ -493,9 +493,60 @@ public class Main {
         myWeapon1.fire();
         myWeapon2.fire();*/
 
+        //用方法来封装字段，用try catch来抓异常
+        /*Student student = new Student();
+        try {
+            student.setAge(30);
+            System.out.println(student.getAge());
+            student.setAge(100);
+            System.out.println(student.getAge());
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }*/
 
+        //不抛异常，用if else来代替会出现什么情况
+        /*Student student = new Student();
+        student.setAge(35);
+        System.out.println(student.getAge());
+        student.setAge(300);                             //此时值已经不对了，但是逻辑却还在继续往下跑。
+        System.out.println(student.getAge());*/         //有异常时需要尽早把异常抛出来，否则bug就抓不到了
     }
 }
+//用方法来封装字段
+/*class Student{
+    private int age;           //被封装的字段基本上都是private的
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) throws Exception {
+        if (age>=6 && age<=90){
+            this.age = age;
+        }else {
+            String message = String.format("The age value %d is invalid.", age);
+            throw new Exception(message);
+        }
+    }
+}*/
+
+//不抛异常，用if else来代替会出现什么情况
+/*class Student{
+    private int age;
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        if (age>=6 && age<=90){
+            this.age = age;
+        }else {
+            System.out.println("Your value is invalid.");
+        }
+    }
+}*/
+
 //接口
 /*interface Vehicle {
     public abstract void run();
