@@ -510,6 +510,8 @@ public class Main {
         System.out.println(student.getAge());
         student.setAge(300);                             //此时值已经不对了，但是逻辑却还在继续往下跑。
         System.out.println(student.getAge());*/         //有异常时需要尽早把异常抛出来，否则bug就抓不到了
+
+
     }
 }
 //用方法来封装字段
@@ -526,6 +528,7 @@ public class Main {
         }else {
             String message = String.format("The age value %d is invalid.", age);
             throw new Exception(message);
+
         }
     }
 }*/
@@ -600,6 +603,14 @@ class RocketLauncher implements Weapon{
 //方法重载
 /*class Calculator{
     public int add(int a, int b){
+        return a+b;
+    }
+
+    public double add(double a, int b){
+        return a+b;
+    }
+
+    public double add(int a, double b){
         return a+b;
     }
 
