@@ -463,7 +463,7 @@ public class Main {
         while (endIndex<intArray.length){
             int temp=0;
             if (intArray[endIndex]==intArray[startIndex]){      //endIndex每移动一次就判断一次，更新一次temp的值
-                temp=endIndex-startIndex;
+                temp=endIndex-startIndex;  日    //老师的解法的好处是不需要单独考虑数组末尾的情况，因为每移动一次就更新了一次
                 if (temp>delta){
                     delta=temp;
                 }
