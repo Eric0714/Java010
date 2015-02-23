@@ -474,6 +474,26 @@ public class Main {
         }
         result=delta+1;
         System.out.println(result);*/
+        //自己复习时重写的方法
+        /*int[] intArray = {1, 1, 1, 2, 2, 3, 3, 3, 4, 4};
+        int leftIndex =0;
+        int rightIndex =0;
+        int maxLength=0;
+        while (rightIndex<intArray.length){
+            if (intArray[rightIndex]!=intArray[leftIndex]){
+                int length=rightIndex-leftIndex;
+                if (length>maxLength){
+                    maxLength=length;
+                }
+                leftIndex=rightIndex;
+            }else if (rightIndex==intArray.length-1){
+                if (rightIndex-leftIndex+1>maxLength){
+                    maxLength=rightIndex-leftIndex+1;
+                }
+            }
+            rightIndex++;
+        }
+        System.out.println(maxLength);*/
 
         //泛型类
         /*Apple apple = new Apple();
