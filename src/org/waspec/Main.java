@@ -268,6 +268,19 @@ public class Main {
         }
         Reverse.reverse(charArray, start, charArray.length - 1);
         System.out.println(charArray);*/
+        //用while会更容易理解一些
+        /*int left=0;
+        int right=0;
+        while (right<charArray.length){
+            if (charArray[right]==' '){
+                Reverse.reverse(charArray,left,right-1);
+                left=right+1;
+            }
+            right++;
+        }
+        Reverse.reverse(charArray,left,right-1);
+        System.out.println(charArray);*/
+
         //老师的解法
         /*int startIndex = 0;
         int endIndex = 0;
@@ -514,6 +527,8 @@ public class Main {
 
     }
 }
+
+
 //用方法来封装字段
 /*class Student{
     private int age;           //被封装的字段基本上都是private的
