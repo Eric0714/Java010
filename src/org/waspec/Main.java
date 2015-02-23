@@ -230,6 +230,10 @@ public class Main {
         for (int row = 0; row < n; row++) {
             String rowString = new String(board[row]);
             System.out.println(rowString);
+        }
+        System.out.println();
+        for (int i = 0; i < n; i++) {
+            System.out.println(board[i]);
         }*/
 
         //二维数组的理解
