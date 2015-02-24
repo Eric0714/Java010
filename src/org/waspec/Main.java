@@ -1,5 +1,9 @@
 package org.waspec;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -548,10 +552,39 @@ public class Main {
         student.setAge(300);                             //此时值已经不对了，但是逻辑却还在继续往下跑。
         System.out.println(student.getAge());*/         //有异常时需要尽早把异常抛出来，否则bug就抓不到了
 
+        //从屏幕接收输入
+        /*InputStreamReader in = new InputStreamReader(System.in);
+        BufferedReader buffer = new BufferedReader(in);
+        while (true){
+            try {
+                System.out.println("Please input 2 integers:");
+                String content1 = buffer.readLine();
+                Integer integer1 = Integer.parseInt(content1);
+                String content2 = buffer.readLine();
+                Integer integer2 = Integer.parseInt(content2);
+                Calculator calculator = new Calculator();
+                int result = calculator.add(integer1, integer2);    //这里是一个语法糖，应该给int类型
+                //int result = calculator.add(integer1.intValue(), integer2.intValue());
+                System.out.println(String.format("%d+%d=%d\n", integer1, integer2, result));
+                if (result==99){
+                    System.out.println("Game Over.");
+                    break;
+                }
+            }catch (IOException e){
+                System.out.println("Input Device Error!");
+            }catch (NumberFormatException e){
+                System.out.println("Please input numbers only!");
+            }
+        }*/
 
     }
 }
-
+//流式I/O
+/*class Calculator{
+    public int add(int a, int b){
+        return a+b;
+    }
+}*/
 
 
 //用方法来封装字段
