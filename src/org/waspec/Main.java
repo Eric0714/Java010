@@ -535,7 +535,7 @@ public class Main {
         try {
             student.setAge(30);
             System.out.println(student.getAge());
-            student.setAge(100);
+            student.setAge(100);           //程序执行到这一步时抛出异常，其后的语句（在try中的语句）将不被执行，---阻止错误逻辑继续执行，虽然此时this.age还是30
             System.out.println(student.getAge());
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -551,6 +551,7 @@ public class Main {
 
     }
 }
+
 
 
 //用方法来封装字段
