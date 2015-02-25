@@ -6,6 +6,7 @@ import java.io.*;
 import java.nio.Buffer;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.util.concurrent.ExecutionException;
 
 public class Main {
@@ -645,9 +646,11 @@ class ConnectionConfig{
         Connection connection =null;
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            connection = DriverManager.getConnection("jdbc://mysql://localhost:3306/test", "root", "1234");
-        }catch (Exception e){
-            System.out.println("Error");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/test", "root", "1234");
+        }catch (ClassNotFoundException  e){
+            System.out.println("Mysql JDBC driver not found.");
+        }catch (SQLException e){
+            System.out.println("SQL Exception!");
         }
         return connection;
     }
