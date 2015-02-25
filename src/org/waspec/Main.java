@@ -1,5 +1,7 @@
 package org.waspec;
 
+import com.sun.org.apache.xpath.internal.SourceTree;
+
 import java.io.*;
 import java.nio.Buffer;
 
@@ -551,7 +553,7 @@ public class Main {
         student.setAge(300);                             //此时值已经不对了，但是逻辑却还在继续往下跑。
         System.out.println(student.getAge());*/         //有异常时需要尽早把异常抛出来，否则bug就抓不到了
 
-        //从屏幕接收输入
+        //从屏幕接收输入    I/O这部分理解起来会比较辛苦，不需要具体理解，会用就行，真正用的时候还可以去google
         /*InputStreamReader in = new InputStreamReader(System.in);
         BufferedReader buffer = new BufferedReader(in);
         while (true){
@@ -576,7 +578,7 @@ public class Main {
             }
         }*/
 
-        //从文件中读取
+        //从文件中读取   I/O这部分不需要具体理解，会用，会google就行
         /*try {
             FileReader fileReader = new FileReader("C:\\Numbers.txt");
             BufferedReader buffer = new BufferedReader(fileReader);
@@ -592,14 +594,35 @@ public class Main {
             }
             System.out.println(sum);
             buffer.close();
-            BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("C:\\Sum.txt"), "utf-8"));
-            writer.write(sum.toString());
+            BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("C:\\Sum.txt"), "utf-8")); //将结果写入文件
+            writer.write(sum.toString());   //写入时必须转成字符串，否则会得到错误结果
             writer.close();           //wirter必须close，否则无法写入
         } catch (FileNotFoundException e) {
             System.out.println("File Not Found.");
         } catch (IOException e) {
             System.out.println("Reading Error.");
         }*/
+        //自己写的从文件读入
+        try {
+            FileReader fileReader = new FileReader("C:/Numbers.txt");  //文件路径用/或\\都可，后者是windows用的，前者是linux和Unix用的
+            BufferedReader buffer = new BufferedReader(fileReader);
+            Integer sum =0;
+            String line = buffer.readLine();
+            while (line!=null){
+                Integer integer = Integer.parseInt(line);
+                sum += integer.intValue();
+                line = buffer.readLine();
+            }
+            System.out.println(sum);
+            buffer.close();
+            BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("C:/Sum.txt"), "utf-8"));
+            writer.write(sum.toString());
+            writer.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
 //流式I/O
