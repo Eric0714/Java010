@@ -4,9 +4,7 @@ import com.sun.org.apache.xpath.internal.SourceTree;
 
 import java.io.*;
 import java.nio.Buffer;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.concurrent.ExecutionException;
 
 public class Main {
@@ -632,10 +630,15 @@ public class Main {
         Connection connection =null;
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/test", "root", "1234");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/world", "root", "163w5002cy");
             if (connection!=null){
                 System.out.println("Connection established!");
                 System.out.println(connection);
+                Statement myStatement =  connection.createStatement();
+                ResultSet resultSet = myStatement.executeQuery("select * from world.country");
+                while (resultSet.next()){
+                    System.out.println(resultSet.getString("Name"));
+                }
                 connection.close();
             }
         }catch (ClassNotFoundException  e){
