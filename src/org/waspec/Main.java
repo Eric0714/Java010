@@ -603,7 +603,7 @@ public class Main {
             System.out.println("Reading Error.");
         }*/
         //自己写的从文件读入
-        try {
+        /*try {
             FileReader fileReader = new FileReader("C:/Numbers.txt");  //文件路径用/或\\都可，后者是windows用的，前者是linux和Unix用的
             BufferedReader buffer = new BufferedReader(fileReader);
             Integer sum =0;
@@ -619,10 +619,10 @@ public class Main {
             writer.write(sum.toString());
             writer.close();
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            System.out.println("Fine Not Found");
         } catch (IOException e) {
-            e.printStackTrace();
-        }
+            System.out.println("Reading Error");
+        }*/
     }
 }
 //流式I/O
