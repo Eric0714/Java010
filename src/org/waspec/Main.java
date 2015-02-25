@@ -1,8 +1,7 @@
 package org.waspec;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
+import java.nio.Buffer;
 
 public class Main {
 
@@ -577,6 +576,30 @@ public class Main {
             }
         }*/
 
+        //从文件中读取
+        /*try {
+            FileReader fileReader = new FileReader("C:\\Numbers.txt");
+            BufferedReader buffer = new BufferedReader(fileReader);
+            Integer sum = 0;
+            while (true) {
+                String line = buffer.readLine();
+                System.out.println(line);
+                if (line==null){
+                    break;
+                }else {
+                    sum += Integer.parseInt(line);
+                }
+            }
+            System.out.println(sum);
+            buffer.close();
+            BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("C:\\Sum.txt"), "utf-8"));
+            writer.write(sum.toString());
+            writer.close();           //wirter必须close，否则无法写入
+        } catch (FileNotFoundException e) {
+            System.out.println("File Not Found.");
+        } catch (IOException e) {
+            System.out.println("Reading Error.");
+        }*/
     }
 }
 //流式I/O
