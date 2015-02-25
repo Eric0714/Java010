@@ -4,6 +4,9 @@ import com.sun.org.apache.xpath.internal.SourceTree;
 
 import java.io.*;
 import java.nio.Buffer;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.util.concurrent.ExecutionException;
 
 public class Main {
 
@@ -623,8 +626,33 @@ public class Main {
         } catch (IOException e) {
             System.out.println("Reading Error");
         }*/
+
+        Connection connection =null;
+        try {
+            connection = ConnectionConfig.getConnection();
+            if (connection!=null){
+                System.out.println("Connection established!");
+                connection.close();
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 }
+
+class ConnectionConfig{
+    public static Connection getConnection(){
+        Connection connection =null;
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            connection = DriverManager.getConnection("jdbc://mysql://localhost:3306/test", "root", "1234");
+        }catch (Exception e){
+            System.out.println("Error");
+        }
+        return connection;
+    }
+}
+
 //流式I/O
 /*class Calculator{
     public int add(int a, int b){
