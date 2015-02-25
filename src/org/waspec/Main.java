@@ -628,7 +628,8 @@ public class Main {
             System.out.println("Reading Error");
         }*/
 
-        Connection connection =null;
+        //检测IntelliJ是否能connnect到mysql
+        Connection connection;
         try {
             connection = ConnectionConfig.getConnection();
             if (connection!=null){
