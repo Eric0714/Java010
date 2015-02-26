@@ -585,7 +585,7 @@ public class Main {
         //从文件中读取   I/O这部分不需要具体理解，会用，会google就行
         /*try {
             FileReader fileReader = new FileReader("C:\\Numbers.txt");
-            BufferedReader buffer = new BufferedReader(fileReader);
+            BufferedReader buffer = new BufferedReader(fileReader);  //主要是BufferedReader和BufferedWriter
             Integer sum = 0;
             while (true) {
                 String line = buffer.readLine();
