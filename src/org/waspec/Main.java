@@ -641,7 +641,7 @@ public class Main {
                     String name = resultSet.getString("Name");
                     System.out.println(name);
                     bufferedWriter.write(name);
-                    //bufferedWriter.write("\r\n");
+                    //bufferedWriter.write("\r\n");    //在文件中必须是\r\n，\r回车(把光标扔到这一行开头)，\n换行
                     bufferedWriter.newLine();
                 }
                 bufferedWriter.close();
