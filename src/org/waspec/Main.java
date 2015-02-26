@@ -582,7 +582,7 @@ public class Main {
         }*/
 
         //从文件中读取   I/O这部分不需要具体理解，会用，会google就行
-        try {
+        /*try {
             FileReader fileReader = new FileReader("C:\\Numbers.txt");
             BufferedReader buffer = new BufferedReader(fileReader);  //主要是BufferedReader和BufferedWriter
             BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("C:\\Sum.txt"), "utf-8")); //将结果写入文件
@@ -601,7 +601,7 @@ public class Main {
             System.out.println("File Not Found.");
         } catch (IOException e) {
             System.out.println("Reading Error.");
-        }
+        }*/
         //自己写的从文件读入
         /*try {
             FileReader fileReader = new FileReader("C:/Numbers.txt");  //文件路径用/或\\都可，后者是windows用的，前者是linux和Unix用的
