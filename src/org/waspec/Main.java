@@ -624,11 +624,12 @@ public class Main {
             System.out.println("Reading Error");
         }*/
 
-        //检测IntelliJ是否能connnect到mysql
-        Connection connection =null;
+        //连接到mysql，读出world.country表中的Name栏，并且结果写入一个文件
+        /*Connection connection =null;
         try {
             Class.forName("com.mysql.jdbc.Driver");
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/world", "root", "163w5002cy");
+            System.out.println(connection);
             if (connection!=null){
                 System.out.println("Connection established!");
                 System.out.println(connection);
@@ -637,9 +638,11 @@ public class Main {
                 FileWriter fileWriter = new FileWriter("C://Country.txt");
                 BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
                 while (resultSet.next()){
-                    System.out.println(resultSet.getString("Name"));
                     String name = resultSet.getString("Name");
+                    System.out.println(name);
                     bufferedWriter.write(name);
+                    //bufferedWriter.write("\r\n");
+                    bufferedWriter.newLine();
                 }
                 bufferedWriter.close();
                 connection.close();
@@ -650,7 +653,7 @@ public class Main {
             System.out.println("SQL Exception!");
         }catch (IOException e){
             System.out.println("IO Exception.");
-        }
+        }*/
 
 
 
