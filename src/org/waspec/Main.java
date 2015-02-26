@@ -629,31 +629,20 @@ public class Main {
         }*/
 
         //检测IntelliJ是否能connnect到mysql
-        Connection connection;
-        try {
-            connection = ConnectionConfig.getConnection();
-            if (connection!=null){
-                System.out.println("Connection established!");
-                connection.close();
-            }
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-    }
-}
-
-class ConnectionConfig{
-    public static Connection getConnection(){
         Connection connection =null;
         try {
             Class.forName("com.mysql.jdbc.Driver");
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/test", "root", "1234");
+            if (connection!=null){
+                System.out.println("Connection established!");
+                System.out.println(connection);
+                connection.close();
+            }
         }catch (ClassNotFoundException  e){
             System.out.println("Mysql JDBC driver not found.");
         }catch (SQLException e){
             System.out.println("SQL Exception!");
         }
-        return connection;
     }
 }
 
