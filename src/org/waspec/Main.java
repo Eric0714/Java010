@@ -1,6 +1,7 @@
 package org.waspec;
 
 import com.sun.org.apache.xpath.internal.SourceTree;
+import sun.awt.TracedEventQueue;
 import sun.reflect.annotation.ExceptionProxy;
 
 import java.io.*;
@@ -655,17 +656,29 @@ public class Main {
             System.out.println("IO Exception.");
         }*/
 
-
-
-
-        //方法的覆盖
-        Teacher teacher = new ComputerTeacher();
+        //继承
+        /*Teacher teacher = new Teacher();
         teacher.teach();
+        teacher.sleep();*/
+        //方法覆盖
+        /*ComputerTeacher computerTeacher = new ComputerTeacher();
+        computerTeacher.teach();*/
+        //多态
+        /*Teacher teacher = new ComputerTeacher();     //父类变量可以引用子类的实例，ComputerTeacher也是Teacher，一定可以调到Teacher的所有方法
+        teacher.teach();
+        Human human = new Human();
+        human.sleep();
+        human = new Teacher();
+        human.sleep();
+        human = new ComputerTeacher();  //ComputerTeacher是Human这个类的间接派生类
+        human.sleep();*/
     }
 }
 
-//方法的覆盖
-class Human{
+//继承和方法的覆盖
+/*class Human{
+    public int age;
+
     public void speak(){
         System.out.println("I'm happy to be human.");
     }
@@ -685,9 +698,12 @@ class ComputerTeacher extends Teacher{
     @Override
     public void teach(){
         System.out.println("I can teach Java and C#.");
-
     }
-}
+    @Override
+    public void sleep(){
+        System.out.println("Huluu, huluu,...");
+    }
+}*/
 
 //流式I/O
 /*class Calculator{
