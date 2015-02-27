@@ -1,6 +1,7 @@
 package org.waspec;
 
 import com.sun.org.apache.xpath.internal.SourceTree;
+import sun.reflect.annotation.ExceptionProxy;
 
 import java.io.*;
 import java.nio.Buffer;
@@ -581,29 +582,26 @@ public class Main {
         }*/
 
         //从文件中读取   I/O这部分不需要具体理解，会用，会google就行
-        /*try {
+        try {
             FileReader fileReader = new FileReader("C:\\Numbers.txt");
             BufferedReader buffer = new BufferedReader(fileReader);  //主要是BufferedReader和BufferedWriter
-            Integer sum = 0;
+            BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("C:\\Sum.txt"), "utf-8")); //将结果写入文件
             while (true) {
                 String line = buffer.readLine();
                 System.out.println(line);
                 if (line==null){
                     break;
                 }else {
-                    sum += Integer.parseInt(line);
+                    writer.write(line+'\n');   //写入时必须转成字符串，否则会得到错误结果
                 }
             }
-            System.out.println(sum);
             buffer.close();
-            BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("C:\\Sum.txt"), "utf-8")); //将结果写入文件
-            writer.write(sum.toString());   //写入时必须转成字符串，否则会得到错误结果
             writer.close();           //wirter必须close，否则无法写入
         } catch (FileNotFoundException e) {
             System.out.println("File Not Found.");
         } catch (IOException e) {
             System.out.println("Reading Error.");
-        }*/
+        }
         //自己写的从文件读入
         /*try {
             FileReader fileReader = new FileReader("C:/Numbers.txt");  //文件路径用/或\\都可，后者是windows用的，前者是linux和Unix用的
@@ -636,16 +634,55 @@ public class Main {
                 System.out.println(connection);
                 Statement myStatement =  connection.createStatement();
                 ResultSet resultSet = myStatement.executeQuery("select * from world.country");
+                FileWriter fileWriter = new FileWriter("C://Country.txt");
+                BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
                 while (resultSet.next()){
                     System.out.println(resultSet.getString("Name"));
+                    String name = resultSet.getString("Name");
+                    bufferedWriter.write(name);
                 }
+                bufferedWriter.close();
                 connection.close();
             }
         }catch (ClassNotFoundException  e){
             System.out.println("Mysql JDBC driver not found.");
         }catch (SQLException e){
             System.out.println("SQL Exception!");
+        }catch (IOException e){
+            System.out.println("IO Exception.");
         }
+
+
+
+
+        //方法的覆盖
+        Teacher teacher = new ComputerTeacher();
+        teacher.teach();
+    }
+}
+
+//方法的覆盖
+class Human{
+    public void speak(){
+        System.out.println("I'm happy to be human.");
+    }
+
+    public void sleep(){
+        System.out.println("ZZZzzz...");
+    }
+}
+
+class Teacher extends Human{
+    public void teach(){
+        System.out.println("I can teach.");
+    }
+}
+
+class ComputerTeacher extends Teacher{
+    @Override
+    public void teach(){
+        System.out.println("I can teach Java and C#.");
+
     }
 }
 
