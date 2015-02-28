@@ -636,7 +636,7 @@ public class Main {
                 System.out.println(connection);
                 Statement myStatement =  connection.createStatement();
                 ResultSet resultSet = myStatement.executeQuery("select * from world.country");
-                FileWriter fileWriter = new FileWriter("C://Country.txt");
+                FileWriter fileWriter = new FileWriter("C:\\Country.txt");
                 BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
                 while (resultSet.next()){
                     String name = resultSet.getString("Name");
