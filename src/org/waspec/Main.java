@@ -672,8 +672,65 @@ public class Main {
         human.sleep();
         human = new ComputerTeacher();  //ComputerTeacher是Human这个类的间接派生类
         human.sleep();*/
+
+        //抽象类
+        /*Teacher teacher = new EnglishTeacher();
+        teacher.age =20;
+        teacher.speak();*/
+
+        //匿名类  当强行实例化抽象类和接口时，会自动创建一个匿名类
+        /*Teacher teacher = new Teacher() {
+            @Override
+            public void teach() {
+                System.out.println("I can teach all.");
+            }
+        };    //必须要加;作为一个完整的语句
+        teacher.teach();
+        Class myClass = teacher.getClass();
+        System.out.println(myClass);
+
+        Human human = new Human() {
+            @Override
+            public void think() {
+                System.out.println("Who am I");
+            }
+        };
+        human.think();
+        Class someClass = human.getClass();
+        System.out.println(someClass);    //编译器将这个匿名类命名为Main$1，如果欺负编译器提前准备一个叫作Main$1的类，那编译器会把匿名类的名字改成Main$2*/
+
+
     }
 }
+///抽象类和匿名类
+/*interface Human{
+    void think();
+}
+
+abstract class Teacher {   //抽象类不完全实现，不能实例化
+    public abstract void teach();
+    public int age;          //抽象类里可以有字段
+    public void sleep(){
+        System.out.println("ZZzz...");
+    }
+    public void speak(){
+        System.out.println(String.format("I'm %d years old.", this.age));
+    }
+}
+
+class EnglishTeacher extends Teacher{
+    @Override
+    public void teach(){
+        System.out.println("I can teach English.");
+    }
+}
+
+class ComputerTeacher extends Teacher{
+    @Override
+    public void teach(){
+        System.out.println("I can teach Java.");
+    }
+}*/
 
 //继承和方法的覆盖
 /*class Human{
