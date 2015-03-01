@@ -687,7 +687,7 @@ public class Main {
         };    //必须要加;作为一个完整的语句
         teacher.teach();
         Class myClass = teacher.getClass();
-        System.out.println(myClass);
+        System.out.println(myClass);      //不是teacher类型，是匿名类型
 
         Human human = new Human() {
             @Override
@@ -699,18 +699,94 @@ public class Main {
         Class someClass = human.getClass();
         System.out.println(someClass);    //编译器将这个匿名类命名为Main$1，如果欺负编译器提前准备一个叫作Main$1的类，那编译器会把匿名类的名字改成Main$2*/
 
+        //接口，抽象类，具体类综合应用
+        /*American american = new American();
+        american.greeting();
+        american.setAge(20);
+        System.out.println(american.getAge());
+
+        Chinese chinese = new Chinese();
+        chinese.greeting();
+        chinese.setAge(20);
+        System.out.println(chinese.getAge());
+
+        ABC abc = new ABC();
+        abc.greeting();
+        abc.setAge(20);
+        System.out.println(abc.getAge());*/
+
 
     }
 }
-///抽象类和匿名类
+
+
+//接口，抽象类，具体类综合应用
+/*interface Human{
+    void greeting();
+    void setAge(int age);
+    int getAge();
+}
+
+class American implements Human{
+    private int age;
+
+    @Override
+    public void greeting() {
+        System.out.println("Hello");
+    }
+
+    @Override
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    @Override
+    public int getAge() {
+        return this.age;
+    }
+}
+
+
+abstract class ChineseBase implements Human{
+    protected int age;     //注意字段的访问权限，如果是private，则它的派生类里虽然有这个字段，但是却无法访问
+
+    @Override
+    public void greeting() {
+        System.out.println("你好");
+    }
+
+    @Override
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public abstract int getAge();
+}
+
+class Chinese extends ChineseBase{
+    @Override
+    public int getAge() {
+        return this.age+1;
+    }
+}
+
+class ABC extends ChineseBase{
+    @Override
+    public int getAge() {
+        return this.age;
+    }
+}*/
+
+
+///抽象类，抽象类和接口，匿名类
 /*interface Human{
     void think();
 }
 
 abstract class Teacher {   //抽象类不完全实现，不能实例化
-    public abstract void teach();
+    public abstract void teach();      //抽象类里有没有实现的方法
     public int age;          //抽象类里可以有字段
-    public void sleep(){
+    public void sleep(){      ///抽象类里可以有实现了的方法
         System.out.println("ZZzz...");
     }
     public void speak(){
@@ -718,14 +794,14 @@ abstract class Teacher {   //抽象类不完全实现，不能实例化
     }
 }
 
-class EnglishTeacher extends Teacher{
+class EnglishTeacher extends Teacher{      //派生自抽象类
     @Override
     public void teach(){
         System.out.println("I can teach English.");
     }
 }
 
-class ComputerTeacher extends Teacher{
+class ComputerTeacher extends Teacher{     //派生自抽象类
     @Override
     public void teach(){
         System.out.println("I can teach Java.");
