@@ -718,6 +718,26 @@ public class Main {
 
     }
 }
+//接口可以extends接口，具体类可以extends抽象类，抽象类和具体类可以implements接口
+/*interface Human{
+    void speak();
+}
+
+interface Teacher extends Human{
+    void teach();
+}
+
+class ChineseTeacher implements Teacher{
+    @Override
+    public void teach() {
+        System.out.println("I can teach Chinese.");
+    }
+
+    @Override
+    public void speak() {
+        System.out.println("Who I am.");
+    }
+}*/
 
 
 //接口，抽象类，具体类综合应用
