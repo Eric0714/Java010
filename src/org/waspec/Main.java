@@ -715,10 +715,23 @@ public class Main {
         abc.setAge(20);
         System.out.println(abc.getAge());*/
 
-
+        //getClass()返回的是变量所引用的实例的类型
+        /*Men chineseMen = new ChineseMen();
+        System.out.println(chineseMen.getClass());*/
     }
 }
 
+//getClass()返回的是变量所引用的实例的类型
+/*interface Men{
+    void eat();
+}
+
+class ChineseMen implements Men{
+    @Override
+    public void eat() {
+        System.out.println("We eat rice.");
+    }
+}*/
 
 //接口可以extends接口，具体类可以extends抽象类，抽象类和具体类可以implements接口
 /*interface Human{
