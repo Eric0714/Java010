@@ -7,6 +7,7 @@ import sun.reflect.annotation.ExceptionProxy;
 import java.io.*;
 import java.nio.Buffer;
 import java.sql.*;
+import java.util.*;
 import java.util.concurrent.ExecutionException;
 
 public class Main {
@@ -718,8 +719,31 @@ public class Main {
         //getClass()返回的是变量所引用的实例的类型
         /*Men chineseMen = new ChineseMen();
         System.out.println(chineseMen.getClass());*/
+
+        //List<E>的使用
+        /*List<Student> studentList = new ArrayList<Student>();
+        studentList.add(new Student(1));
+        studentList.add(new Student(2));
+        studentList.add(new Student(3));
+        studentList.remove(new Student(2));   //这里删除的是引用着一个新的实例的元素(虽然这个实例中id为2)，而这个元素在 List里根本就不存在
+        System.out.println(studentList.size());*/
+        //Set<E>的使用
+        /*Set<Student> studentSet = new HashSet<Student>();
+        studentSet.add(new Student(1));
+        studentSet.add(new Student(2));
+        studentSet.add(new Student(2));   //这里是两个不同的实例，所以虽然它们的id的值一样，但是仍然是不同的元素
+        System.out.println(studentSet.size());*/
     }
 }
+//List<E>和Set<E>的应用
+/*class Student{
+    public Student(int id) {
+        this.id = id;
+    }
+
+    public int id;
+}*/
+
 
 //getClass()返回的是变量所引用的实例的类型
 /*interface Men{
