@@ -721,12 +721,29 @@ public class Main {
         System.out.println(chineseMen.getClass());*/
 
         //List<E>的使用
-        /*List<Student> studentList = new ArrayList<Student>();
+        List<Student> studentList = new ArrayList<Student>();
         studentList.add(new Student(1));
         studentList.add(new Student(2));
         studentList.add(new Student(3));
         studentList.remove(new Student(2));   //这里删除的是引用着一个新的实例的元素(虽然这个实例中id为2)，而这个元素在 List里根本就不存在
-        System.out.println(studentList.size());*/
+        System.out.println(studentList.size());
+        System.out.println(studentList.get(0).id);   //List是0基的
+        studentList.add(1, new Student(100));   //插入
+        for (Student s : studentList){      //迭代用foreach性能更高
+            System.out.println(s.id);
+        }
+        Student studentToDelete=null;
+        for (Student s : studentList){
+            if (s.id == 100){
+                studentToDelete = s;
+                break;
+            }
+        }
+        studentList.remove(studentToDelete);
+        for (Student s:studentList){
+            System.out.println(s.id);
+        }
+
         //Set<E>的使用
         /*Set<Student> studentSet = new HashSet<Student>();
         studentSet.add(new Student(1));
@@ -736,13 +753,13 @@ public class Main {
     }
 }
 //List<E>和Set<E>的应用
-/*class Student{
+class Student{
     public Student(int id) {
         this.id = id;
     }
 
     public int id;
-}*/
+}
 
 
 //getClass()返回的是变量所引用的实例的类型
