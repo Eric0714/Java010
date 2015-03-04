@@ -721,20 +721,22 @@ public class Main {
         System.out.println(chineseMen.getClass());*/
 
         //List<E>的使用
-        List<Student> studentList = new ArrayList<Student>();
+        /*List<Student> studentList = new ArrayList<Student>();  //就算替换成LinkedList，逻辑也完全不用改，面向接口编程的好处
         studentList.add(new Student(1));
         studentList.add(new Student(2));
         studentList.add(new Student(3));
-        studentList.remove(new Student(2));   //这里删除的是引用着一个新的实例的元素(虽然这个实例中id为2)，而这个元素在 List里根本就不存在
+        studentList.remove(new Student(2));   //这里删除的是引用着一个新的实例的元素(虽然这个实例中id为2)，而这个元素在 List里根本就不存在。但是如果这里是Integer类型的元素的话，Integer在比较的时候其实比较的是它引用的对象的值（语法糖），是特例
         System.out.println(studentList.size());
         System.out.println(studentList.get(0).id);   //List是0基的
         studentList.add(1, new Student(100));   //插入
+        studentList.set(1, new Student(200));   //改
         for (Student s : studentList){      //迭代用foreach性能更高
             System.out.println(s.id);
         }
         Student studentToDelete=null;
+        int idToBeDelete=200;
         for (Student s : studentList){
-            if (s.id == 100){
+            if (s.id == idToBeDelete){
                 studentToDelete = s;
                 break;
             }
@@ -742,13 +744,18 @@ public class Main {
         studentList.remove(studentToDelete);
         for (Student s:studentList){
             System.out.println(s.id);
-        }
+        }*/
 
         //Set<E>的使用
         /*Set<Student> studentSet = new HashSet<Student>();
         studentSet.add(new Student(1));
         studentSet.add(new Student(2));
         studentSet.add(new Student(2));   //这里是两个不同的实例，所以虽然它们的id的值一样，但是仍然是不同的元素
+        System.out.println(studentSet.size());
+
+        Student student = new Student(4);
+        studentSet.add(student);
+        studentSet.add(student);
         System.out.println(studentSet.size());*/
     }
 }
