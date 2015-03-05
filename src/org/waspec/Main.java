@@ -760,13 +760,13 @@ public class Main {
     }
 }
 //List<E>和Set<E>的应用
-class Student{
+/*class Student{
     public Student(int id) {
         this.id = id;
     }
 
     public int id;
-}
+}*/
 
 
 //getClass()返回的是变量所引用的实例的类型
