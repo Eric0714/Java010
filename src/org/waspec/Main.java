@@ -758,19 +758,34 @@ public class Main {
         studentSet.add(student);
         System.out.println(studentSet.size());*/
 
+        //Stack
+        /*Stack<Student> studentStack = new Stack<Student>();
+        Student student1 = new Student(1);
+        Student student2 = new Student(2);
+        Student student3 = new Student(3);
+        studentStack.push(student1);
+        studentStack.push(student1);   //可以存在重复元素
+        studentStack.push(student2);
+        studentStack.push(student3);
+        System.out.printf("Top student's id is: %d\n", studentStack.peek().id);
+        System.out.printf("Student stack's size is: %d\n", studentStack.size());
+        System.out.printf("Popped student's id is: %d\n", studentStack.pop().id);
+        System.out.printf("Now student stack's size is: %d\n", studentStack.size());
 
-        Stack<Student> studentStack = new Stack<Student>();
-        studentStack.push(new Student(1));
-        studentStack.push(new Student(2));
-        studentStack.push(new Student(3));
-        studentStack.push(new Student(4));
-        Student s = new Student(5);
-        studentStack.push(s);
-        int index = studentStack.search(s);
-        System.out.println(index);
+        studentStack.add(1, new Student(4));   //因为Stack派生自List，所以List里的方法也可以用，但是正常情况下基本没人用
+        for (Student student : studentStack){       //迭代时是按照加入元素的先后顺序进行迭代(List)
+            System.out.print(student.id + " ");
+        }
+        System.out.println();
+
+        int index = studentStack.search(student2);
+        System.out.printf("the index of the searched student is: %d\n",index);*/     //search方法是从栈顶开始数，并且是1基的。好处在于，pop这么多次就可以拿到这个元素
+
+        Deque<Integer> stack = new ArrayDeque<Integer>();
+
     }
 }
-//List<E>和Set<E>的应用
+//List<E>, Set<E>和Stack的应用
 class Student{
     public Student(int id) {
         this.id = id;
