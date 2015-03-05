@@ -757,16 +757,27 @@ public class Main {
         studentSet.add(student);
         studentSet.add(student);
         System.out.println(studentSet.size());*/
+
+
+        Stack<Student> studentStack = new Stack<Student>();
+        studentStack.push(new Student(1));
+        studentStack.push(new Student(2));
+        studentStack.push(new Student(3));
+        studentStack.push(new Student(4));
+        Student s = new Student(5);
+        studentStack.push(s);
+        int index = studentStack.search(s);
+        System.out.println(index);
     }
 }
 //List<E>和Set<E>的应用
-/*class Student{
+class Student{
     public Student(int id) {
         this.id = id;
     }
 
     public int id;
-}*/
+}
 
 
 //getClass()返回的是变量所引用的实例的类型
