@@ -758,7 +758,7 @@ public class Main {
         studentSet.add(student);
         System.out.println(studentSet.size());*/
 
-        //Stack
+        //Stack的应用
         /*Stack<Student> studentStack = new Stack<Student>();
         Student student1 = new Student(1);
         Student student2 = new Student(2);
@@ -991,8 +991,12 @@ class TreeNode {
         while (queue.peek() != null) {
             Node temp = queue.poll();
             System.out.println(temp.payload);
-            queue.offer(temp.leftChild);
-            queue.offer(temp.rightChild);
+            if (temp.leftChild!=null) {
+                queue.offer(temp.leftChild);
+            }
+            if (temp.rightChild!=null) {
+                queue.offer(temp.rightChild);
+            }
         }
     }
 
