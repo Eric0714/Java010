@@ -826,7 +826,7 @@ public class Main {
         //Node.preorderDFT(root);
         //Node.postorderDFT(root);
 
-        int[] intArray = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+        int[] intArray = {1, 2};
         TreeNode root = sortedArray.buildTreeNode(intArray);
         TreeNode.BFT(root);
 
@@ -844,22 +844,26 @@ class sortedArray {
 
         int rootIndex = (intArray.length-1)/2;
         TreeNode root = new TreeNode(intArray[rootIndex]);
-        if (rootIndex==0){
+        if (intArray.length==1){
+            return root;
+        } else if (intArray.length==2){
+            root.rightChild = new TreeNode(intArray[1]);
+            return root;
+        }else {
+            int leftArrayLength = rootIndex;
+            int[] leftArray = new int[leftArrayLength];  //leftArray的长度跟rootIndex的值是一样的
+            for (int i = 0; i < rootIndex; i++) {
+                leftArray[i] = intArray[i];
+            }
+            root.leftChild = buildTreeNode(leftArray);
+            int rightArrayLength = intArray.length-1-rootIndex;
+            int[] rightArray = new int[rightArrayLength];
+            for (int j = 0; j < rightArrayLength; j++) {
+                rightArray[j] = intArray[rootIndex+1+j];
+            }
+            root.rightChild = buildTreeNode(rightArray);
             return root;
         }
-        int leftArrayLength = rootIndex;
-        int[] leftArray = new int[leftArrayLength];  //leftArray的长度跟rootIndex的值是一样的
-        for (int i = 0; i < rootIndex; i++) {
-            leftArray[i] = intArray[i];
-        }
-        root.leftChild = buildTreeNode(leftArray);
-        int rightArrayLength = intArray.length-1-rootIndex;
-        int[] rightArray = new int[rightArrayLength];
-        for (int j = 0; j < rightArrayLength; j++) {
-            rightArray[j] = intArray[rootIndex+1+j];
-        }
-        root.rightChild = buildTreeNode(rightArray);
-        return root;
     }
 }
 
