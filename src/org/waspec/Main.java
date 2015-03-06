@@ -828,14 +828,42 @@ public class Main {
 
         //将sortedArray转成一棵平衡检索二叉树
         /*int[] intArray = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-        TreeNode root = sortedArray.buildTreeNode(intArray);
+        TreeNode root = SortedArray.buildTreeNode(intArray);
         TreeNode.BFT(root);*/
+
 
     }
 }
 
+class Graph{
+    public Graph(int payload) {
+        this.payload = payload;
+    }
+
+    public int payload;
+    public boolean isAccessed;
+    public Graph leftChild;
+    public Graph rightChild;
+
+    public static Graph buildAGraph(){
+        Graph start = new Graph(1);
+        start.leftChild = new Graph(2);
+        start.leftChild.leftChild = new Graph(4);
+        start.leftChild.rightChild = new Graph(5);
+        start.leftChild.leftChild.rightChild = start.leftChild.rightChild;
+        start.leftChild.leftChild.leftChild = start;
+        start.rightChild = new Graph(3);
+        start.rightChild.leftChild = new Graph(6);
+        start.rightChild.rightChild = new Graph(7);
+        start.rightChild.leftChild.rightChild = start.rightChild.rightChild;
+        start.leftChild.rightChild.rightChild = start.rightChild.leftChild;
+        start.rightChild.rightChild.rightChild = start.rightChild;
+        return start;
+    }
+}
+
 //将sortedArray转成一棵平衡检索二叉树
-/*class sortedArray {
+/*class SortedArray {
     public static TreeNode buildTreeNode(int[] intArray) {
 
         int rootIndex = (intArray.length-1)/2;
