@@ -311,7 +311,7 @@ public class Main {
         }
         System.out.println(charArray);*/
 
-         //''和""造成数据类型不同，因而操作也不同
+        //''和""造成数据类型不同，因而操作也不同
         /*System.out.print(1 + 'x' + 2 + "=" + 1 * 2 + '\t');
         System.out.println(1 + "x" + 2 + "=" + 1 * 2 + '\t');
         System.out.println('x');
@@ -818,10 +818,94 @@ public class Main {
             System.out.println(temp.id);
         }*/
 
-
-
+        //二叉树的深度优先遍历和广度优先遍历
+        //Node root = Node.buildATree();
+        //Node.BFT(root);
+        //Node.inorderDFT(root);
+        //Node.inorderDFT(root,0);
+        //Node.preorderDFT(root);
+        //Node.postorderDFT(root);
     }
 }
+
+//二叉树的深度优先遍历（DFT）和广度优先遍历（BFT）
+/*class Node {
+    public Node(int payload) {
+        this.payload = payload;
+    }
+
+    public int payload;
+    public Node leftChild;
+    public Node rightChild;
+
+    public static Node buildATree() {
+        Node root = new Node(1);
+        root.leftChild = new Node(2);
+        root.rightChild = new Node(3);
+        root.leftChild.leftChild = new Node(4);
+        root.leftChild.rightChild = new Node(5);
+        root.rightChild.leftChild = new Node(6);
+        root.rightChild.rightChild = new Node(7);
+        return root;
+    }
+
+    //二叉树广度优先遍历算法   利用Queue这种数据结构
+    public static void BFT(Node root) {
+        Queue<Node> queue = new LinkedList<Node>();
+        queue.offer(root);
+        while (queue.peek() != null) {
+            Node temp = queue.poll();
+            System.out.println(temp.payload);
+            queue.offer(temp.leftChild);
+            queue.offer(temp.rightChild);
+        }
+    }
+
+    //二叉树中序深度优先遍历算法
+    public static void inorderDFT(Node root) {
+        if (root.leftChild != null) {
+            inorderDFT(root.leftChild);
+        }
+        System.out.println(root.payload);
+        if (root.rightChild != null) {
+            inorderDFT(root.rightChild);
+        }
+    }
+
+    //二叉树中序深度优先遍历算法的另一种写法
+    public static void inorderDFT(Node root, int level) {
+        if (root==null){
+            return;
+        }
+        level++;
+        inorderDFT(root.leftChild, level);
+        System.out.printf("%d on level %d\n", root.payload, level);
+        inorderDFT(root.rightChild, level);
+    }
+
+    //二叉树前序深度优先遍历算法
+    public static void preorderDFT(Node root) {
+        System.out.println(root.payload);
+        if (root.leftChild != null) {
+            preorderDFT(root.leftChild);
+        }
+        if (root.rightChild != null) {
+            preorderDFT(root.rightChild);
+        }
+    }
+
+    //二叉树后序深度优先遍历算法
+    public static void postorderDFT(Node root) {
+        if (root.leftChild != null) {
+            postorderDFT(root.leftChild);
+        }
+        if (root.rightChild != null) {
+            postorderDFT(root.rightChild);
+        }
+        System.out.println(root.payload);
+    }
+}*/
+
 //List<E>, Set<E>，Stack和Queue的应用
 /*class Student{
     public Student(int id) {
