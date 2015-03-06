@@ -827,18 +827,39 @@ public class Main {
         //Node.postorderDFT(root);
 
         int[] intArray = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+        TreeNode root = sortedArray.buildTreeNode(intArray);
+        TreeNode.BFT(root);
 
     }
 }
 
 class sortedArray {
     public static TreeNode buildTreeNode(int[] intArray) {
-        int rootIndex = (intArray.length-1)/2;
+        /*int rootIndex = (intArray.length-1)/2;
         TreeNode root = new TreeNode(intArray[rootIndex]);
         int leftIndex = (rootIndex-1)/2;
         root.leftChild = new TreeNode(intArray[leftIndex]);
         int rightIndex = (rootIndex+intArray.length)/2;
-        root.rightChild = new TreeNode(intArray[rightIndex]);
+        root.rightChild = new TreeNode(intArray[rightIndex]);*/
+
+        int rootIndex = (intArray.length-1)/2;
+        TreeNode root = new TreeNode(intArray[rootIndex]);
+        if (rootIndex==0){
+            return root;
+        }
+        int leftArrayLength = rootIndex;
+        int[] leftArray = new int[leftArrayLength];  //leftArray的长度跟rootIndex的值是一样的
+        for (int i = 0; i < rootIndex; i++) {
+            leftArray[i] = intArray[i];
+        }
+        root.leftChild = buildTreeNode(leftArray);
+        int rightArrayLength = intArray.length-1-rootIndex;
+        int[] rightArray = new int[rightArrayLength];
+        for (int j = 0; j < rightArrayLength; j++) {
+            rightArray[j] = intArray[rootIndex+1+j];
+        }
+        root.rightChild = buildTreeNode(rightArray);
+        return root;
     }
 }
 
@@ -850,6 +871,17 @@ class TreeNode {
     public int payload;
     public TreeNode leftChild;
     public TreeNode rightChild;
+
+    public static void BFT(TreeNode root) {
+        Queue<TreeNode> queue = new LinkedList<TreeNode>();
+        queue.offer(root);
+        while (queue.peek() != null) {
+            TreeNode temp = queue.poll();
+            System.out.println(temp.payload);
+            queue.offer(temp.leftChild);
+            queue.offer(temp.rightChild);
+        }
+    }
 }
 
 //二叉树的深度优先遍历（DFT）和广度优先遍历（BFT）
