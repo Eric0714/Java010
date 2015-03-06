@@ -825,7 +825,31 @@ public class Main {
         //Node.inorderDFT(root,0);
         //Node.preorderDFT(root);
         //Node.postorderDFT(root);
+
+        int[] intArray = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+
     }
+}
+
+class sortedArray {
+    public static TreeNode buildTreeNode(int[] intArray) {
+        int rootIndex = (intArray.length-1)/2;
+        TreeNode root = new TreeNode(intArray[rootIndex]);
+        int leftIndex = (rootIndex-1)/2;
+        root.leftChild = new TreeNode(intArray[leftIndex]);
+        int rightIndex = (rootIndex+intArray.length)/2;
+        root.rightChild = new TreeNode(intArray[rightIndex]);
+    }
+}
+
+class TreeNode {
+    public TreeNode(int payload) {
+        this.payload = payload;
+    }
+
+    public int payload;
+    public TreeNode leftChild;
+    public TreeNode rightChild;
 }
 
 //二叉树的深度优先遍历（DFT）和广度优先遍历（BFT）
