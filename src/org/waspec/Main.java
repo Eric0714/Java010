@@ -826,21 +826,17 @@ public class Main {
         //Node.preorderDFT(root);
         //Node.postorderDFT(root);
 
-        int[] intArray = {1, 2};
+        //将sortedArray转成一棵平衡检索二叉树
+        /*int[] intArray = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
         TreeNode root = sortedArray.buildTreeNode(intArray);
-        TreeNode.BFT(root);
+        TreeNode.BFT(root);*/
 
     }
 }
 
-class sortedArray {
+//将sortedArray转成一棵平衡检索二叉树
+/*class sortedArray {
     public static TreeNode buildTreeNode(int[] intArray) {
-        /*int rootIndex = (intArray.length-1)/2;
-        TreeNode root = new TreeNode(intArray[rootIndex]);
-        int leftIndex = (rootIndex-1)/2;
-        root.leftChild = new TreeNode(intArray[leftIndex]);
-        int rightIndex = (rootIndex+intArray.length)/2;
-        root.rightChild = new TreeNode(intArray[rightIndex]);*/
 
         int rootIndex = (intArray.length-1)/2;
         TreeNode root = new TreeNode(intArray[rootIndex]);
@@ -882,11 +878,15 @@ class TreeNode {
         while (queue.peek() != null) {
             TreeNode temp = queue.poll();
             System.out.println(temp.payload);
-            queue.offer(temp.leftChild);
-            queue.offer(temp.rightChild);
+            if (temp.leftChild!=null){       //只有在leftChild不为空时才把它的子树拉进queue，否则队列会提前出现null值，提早结束
+                queue.offer(temp.leftChild);
+            }
+            if (temp.rightChild!=null){
+                queue.offer(temp.rightChild);
+            }
         }
     }
-}
+}*/
 
 //二叉树的深度优先遍历（DFT）和广度优先遍历（BFT）
 /*class Node {
