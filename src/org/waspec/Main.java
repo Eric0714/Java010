@@ -833,7 +833,8 @@ public class Main {
 
         //Graph的广度优先遍历
         Graph start = Graph.buildAGraph();
-        Graph.BFT(start);
+        //Graph.BFT(start);
+        Graph.inorderDFT(start);
 
     }
 }
@@ -863,6 +864,14 @@ class Graph{
         start.leftChild.rightChild.rightChild = start.rightChild.leftChild;
         start.rightChild.rightChild.rightChild = start.rightChild;
         return start;
+
+        /*Graph start = new Graph(1);
+        start.leftChild = new Graph(2);
+        start.rightChild = new Graph(3);
+        start.leftChild.leftChild = start;
+        start.leftChild.rightChild = start.rightChild;
+        start.rightChild.rightChild = start;
+        return start;*/
     }
     //图的广度遍历
     public static void BFT(Graph start){
@@ -881,6 +890,26 @@ class Graph{
                 temp.rightChild.isAccessed = true;
             }
         }
+    }
+    //图的深度遍历
+    public static void inorderDFT(Graph start){
+        /*if (start.leftChild!=null && start.leftChild.isAccessed == false){
+            start.leftChild.isAccessed = true;
+            Graph.inorderDFT(start.leftChild);
+        }
+        System.out.println(start.payload);
+
+        if (start.rightChild!=null && start.rightChild.isAccessed ==false){
+            start.rightChild.isAccessed = true;
+            Graph.inorderDFT(start.rightChild);
+        }*/
+        if (start==null || start.isAccessed == true){
+            return;
+        }
+        start.isAccessed = true;
+        inorderDFT(start.leftChild);
+        System.out.println(start.payload);
+        inorderDFT(start.rightChild);
     }
 }
 
