@@ -797,7 +797,7 @@ public class Main {
         }*/
 
         //Queue抛异常组
-        Queue<Student> studentQueue = new LinkedList<Student>();
+        /*Queue<Student> studentQueue = new LinkedList<Student>();
         Student student1 = new Student(1);
         Student student2 = new Student(2);
         Student student3 = new Student(3);
@@ -816,21 +816,20 @@ public class Main {
         }else {
             Student temp = studentQueue.element();
             System.out.println(temp.id);
-        }
+        }*/
 
 
-        Deque<Integer> stack = new ArrayDeque<Integer>();
 
     }
 }
 //List<E>, Set<E>，Stack和Queue的应用
-class Student{
+/*class Student{
     public Student(int id) {
         this.id = id;
     }
 
     public int id;
-}
+}*/
 
 
 //getClass()返回的是变量所引用的实例的类型
