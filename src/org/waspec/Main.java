@@ -781,11 +781,49 @@ public class Main {
         int index = studentStack.search(student2);
         System.out.printf("the index of the searched student is: %d\n",index);*/     //search方法是从栈顶开始数，并且是1基的。好处在于，pop这么多次就可以拿到这个元素
 
+        //Queue不抛异常组
+        /*Queue<Student> studentQueue = new LinkedList<Student>();    //一般就调用LinkedList的对象当作Queue来用
+        Student student1 = new Student(1);
+        Student student2 = new Student(2);
+        Student student3 = new Student(3);
+//        studentQueue.offer(student1);
+//        studentQueue.offer(student2);
+//        studentQueue.offer(student3);
+        Student temp = studentQueue.peek();     //不抛异常。把peek换成poll也不抛异常
+        if (temp!=null){
+            System.out.println(temp.id);
+        }else {
+            System.out.println("The queue is empty.");
+        }*/
+
+        //Queue抛异常组
+        Queue<Student> studentQueue = new LinkedList<Student>();
+        Student student1 = new Student(1);
+        Student student2 = new Student(2);
+        Student student3 = new Student(3);
+//        studentQueue.add(student1);
+//        studentQueue.add(student2);
+//        studentQueue.add(student3);
+        try {
+            Student temp = studentQueue.element();     //抛异常。换成remove也会抛异常
+            System.out.println(temp.id);
+        }catch (NoSuchElementException e){
+            System.out.println("This queue is empty.");
+        }
+        //或者把上面的写法改成
+        if (studentQueue.isEmpty()){
+            System.out.println("This queue is empty.");
+        }else {
+            Student temp = studentQueue.element();
+            System.out.println(temp.id);
+        }
+
+
         Deque<Integer> stack = new ArrayDeque<Integer>();
 
     }
 }
-//List<E>, Set<E>和Stack的应用
+//List<E>, Set<E>，Stack和Queue的应用
 class Student{
     public Student(int id) {
         this.id = id;
