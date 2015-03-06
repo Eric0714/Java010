@@ -831,20 +831,24 @@ public class Main {
         TreeNode root = SortedArray.buildTreeNode(intArray);
         TreeNode.BFT(root);*/
 
+        //Graph的广度优先遍历
+        Graph start = Graph.buildAGraph();
+        Graph.BFT(start);
 
     }
 }
-
+//图(Graph)的广度优先遍历
 class Graph{
     public Graph(int payload) {
         this.payload = payload;
+        this.isAccessed = false;
     }
 
     public int payload;
-    public boolean isAccessed;
+    public boolean isAccessed;     //图只比二叉树多了一个isAccessed的属性
     public Graph leftChild;
     public Graph rightChild;
-
+    //构造出一张图
     public static Graph buildAGraph(){
         Graph start = new Graph(1);
         start.leftChild = new Graph(2);
@@ -859,6 +863,24 @@ class Graph{
         start.leftChild.rightChild.rightChild = start.rightChild.leftChild;
         start.rightChild.rightChild.rightChild = start.rightChild;
         return start;
+    }
+    //图的广度遍历
+    public static void BFT(Graph start){
+        Queue<Graph> queue = new LinkedList<Graph>();
+        queue.offer(start);
+        start.isAccessed = true;
+        while (queue.peek()!=null){
+            Graph temp = queue.poll();
+            System.out.println(temp.payload);
+            if (temp.leftChild!=null && temp.leftChild.isAccessed==false){
+                queue.offer(temp.leftChild);
+                temp.leftChild.isAccessed = true;
+            }
+            if (temp.rightChild!=null&& temp.rightChild.isAccessed==false){
+                queue.offer(temp.rightChild);
+                temp.rightChild.isAccessed = true;
+            }
+        }
     }
 }
 
