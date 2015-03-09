@@ -833,7 +833,7 @@ public class Main {
         TreeNode.BFT(root);*/
 
         //Map的应用
-        /*Map<Integer, Student> students = new HashMap<Integer, Student>();
+        /*Map<Integer, Student> students = new HashMap<Integer, Student>();  //Java里的所有集合都只能容纳引用类型，不能容纳基本类型
         for (int i = 0; i < 50; i++) {
             Student student = new Student();
             student.id = i+1;
@@ -842,7 +842,22 @@ public class Main {
         }
         System.out.println(students.size());
         Integer targetID = 34;
-        System.out.println(students.get(targetID).name);*/
+        System.out.println(students.get(targetID).name);
+        //不要写成下面这样
+        List<Student> studentList = new ArrayList<Student>();
+        for (int i = 0; i < 50; i++) {
+            Student student = new Student();
+            student.id = i+1;
+            student.name = String.format("Student_%d", student.id);
+            studentList.add(student);
+        }
+        Integer targetId = 50;
+        for (Student s:studentList){       //检索时每一个都要迭代到，效率低，不在里面的时候效率最低
+            if (s.id==targetId){
+                System.out.println(s.name);
+                break;
+            }
+        }*/
 
         //Graph的深度优先遍历
         /*Node graph = Node.buildAGraph();
@@ -983,7 +998,7 @@ public class Main {
 
 //Map的应用
 /*class Student{
-    public int id;
+    public Integer id;
     public String name;
 }*/
 
