@@ -876,12 +876,12 @@ public class Main {
 /*class Node{
     public Node(int payload) {
         this.payload = payload;
-        this.children = new HashSet<Node>();
+        this.children = new HashSet<Node>();  //在创建节点的时候就同时把children的集合创建出来，避免Set为null的情况出现，比较安全，但是Set里面可以一个元素都没有
     }
 
     public int payload;
     public boolean isAccessed;     //图只比二叉树多了一个isAccessed的属性
-    public Set<Node> children;     //Set是无序的，所以打印出来的顺序跟加入的顺序无关，而且每次运行可能打出不一样的结果。如果把Set改成List，就是有序的
+    public Set<Node> children;     //Set是无序的，所以打印出来的顺序跟加入的顺序无关，而且每次运行可能打出不一样的结果。如果把Set改成List，就是有序的。不过对图来说，顺序已经不是那么重要了
 
     //构造出一张无向图(for DFT)
     public static Node buildAGraph(){
@@ -899,6 +899,9 @@ public class Main {
         node3.children.add(node1);
         node3.children.add(node4);
         node3.children.add(node5);
+        node4.children.add(node2);
+        node4.children.add(node3);
+        node4.children.add(node5);
         node5.children.add(node2);
         node5.children.add(node3);
         node5.children.add(node4);
@@ -909,7 +912,7 @@ public class Main {
     public static void DFT(Node node){    //图的DFT不存在前序中序后序的问题
         System.out.println(node.payload);
         node.isAccessed = true;
-        for (Node child : node.children){
+        for (Node child : node.children){   //每次构造节点时都创建了一个Set，所以不用担心为null会抛异常
             if (child.isAccessed==false){
                 DFT(child);
             }
@@ -967,9 +970,9 @@ public class Main {
         queue.offer(start);
         accessedNodes.add(start);
         while (!queue.isEmpty()){
-            Node accessingNode = queue.poll();
-            System.out.println(accessingNode.payload);
-            for (Node child : accessingNode.children){
+            Node current = queue.poll();
+            System.out.println(current.payload);
+            for (Node child : current.children){    //注意这里遍历的是current.children里的元素
                 if (!accessedNodes.contains(child)){
                     queue.offer(child);
                     accessedNodes.add(child);   //把节点拉到Queue的同时就要把它加到accessedNodes这个集合里，否则同一个节点会被重复拉入多次
