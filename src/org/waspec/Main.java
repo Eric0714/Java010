@@ -853,6 +853,7 @@ public class Main {
         /*Node start = Node.buildBFTGraph();
         Node.BFT1(start);
         Node.BFT2(start);*/
+
     }
 }
 
@@ -958,6 +959,23 @@ public class Main {
                     queue.offer(child);
                     accessedNodes.add(child);   //把节点拉到Queue的同时就要把它加到accessedNodes这个集合里，否则同一个节点会被重复拉入多次
                 }
+            }
+        }
+    }
+     //图的广度优先遍历(不允许用isAccessed)的另一种写法
+     public static void BFT3(Node node){
+        Set<Node> accessedNodes = new HashSet<Node>();
+        Queue<Node> queue = new LinkedList<Node>();
+        queue.add(node);
+        while (!queue.isEmpty()){
+            Node accessingNode = queue.poll();
+            if (accessedNodes.contains(accessingNode)){
+                continue;
+            }
+            System.out.println(accessingNode.payload);
+            accessedNodes.add(accessingNode);
+            for (Node child : accessingNode.children){
+                queue.add(child);
             }
         }
     }
