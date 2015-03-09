@@ -4,6 +4,7 @@ import com.sun.org.apache.xpath.internal.SourceTree;
 import sun.awt.TracedEventQueue;
 import sun.reflect.annotation.ExceptionProxy;
 
+import javax.swing.tree.TreeNode;
 import java.io.*;
 import java.nio.Buffer;
 import java.sql.*;
@@ -831,83 +832,142 @@ public class Main {
         TreeNode root = SortedArray.buildTreeNode(intArray);
         TreeNode.BFT(root);*/
 
-        //Graph的广度优先遍历
-        Graph start = Graph.buildAGraph();
-        //Graph.BFT(start);
-        Graph.inorderDFT(start);
+        //Map的应用
+        /*Map<Integer, Student> students = new HashMap<Integer, Student>();
+        for (int i = 0; i < 50; i++) {
+            Student student = new Student();
+            student.id = i+1;
+            student.name = String.format("Student_%d", student.id);
+            students.put(student.id, student);             //不要用List来存，检索时效率太低(不在里面的时候效率最低)，而Map里的key就保证了检索时效率很高
+        }
+        System.out.println(students.size());
+        Integer targetID = 34;
+        System.out.println(students.get(targetID).name);*/
 
+        //Graph的深度优先遍历
+        /*Node graph = Node.buildAGraph();
+        Node.DFT(graph);
+        Set<Node> accessedNodes = new HashSet<Node>();
+        Node.DFT(graph, accessedNodes); //这里可以直接写成Graph.DFT(graph, new HashSet<Node>())*/
+        //Graph的广度优先遍历
+        /*Node start = Node.buildBFTGraph();
+        Node.BFT1(start);
+        Node.BFT2(start);*/
     }
 }
-//图(Graph)的广度优先遍历
-class Graph{
-    public Graph(int payload) {
+
+//图(Graph)
+/*class Node{
+    public Node(int payload) {
         this.payload = payload;
-        this.isAccessed = false;
+        this.children = new HashSet<Node>();
     }
 
     public int payload;
     public boolean isAccessed;     //图只比二叉树多了一个isAccessed的属性
-    public Graph leftChild;
-    public Graph rightChild;
-    //构造出一张图
-    public static Graph buildAGraph(){
-        /*Graph start = new Graph(1);
-        start.leftChild = new Graph(2);
-        start.leftChild.leftChild = new Graph(4);
-        start.leftChild.rightChild = new Graph(5);
-        start.leftChild.leftChild.rightChild = start.leftChild.rightChild;
-        start.leftChild.leftChild.leftChild = start;
-        start.rightChild = new Graph(3);
-        start.rightChild.leftChild = new Graph(6);
-        start.rightChild.rightChild = new Graph(7);
-        start.rightChild.leftChild.rightChild = start.rightChild.rightChild;
-        start.leftChild.rightChild.rightChild = start.rightChild.leftChild;
-        start.rightChild.rightChild.rightChild = start.rightChild;
-        return start;*/
+    public Set<Node> children;     //Set是无序的，所以打印出来的顺序跟加入的顺序无关，而且每次运行可能打出不一样的结果。如果把Set改成List，就是有序的
 
-        Graph start = new Graph(1);
-        start.leftChild = new Graph(2);
-        start.rightChild = new Graph(3);
-        start.leftChild.leftChild = start;
-        start.leftChild.rightChild = start.rightChild;
-        start.rightChild.rightChild = start;
-        return start;
+    //构造出一张无向图(for DFT)
+    public static Node buildAGraph(){
+        Node node1 = new Node(1);
+        Node node2 = new Node(2);
+        Node node3 = new Node(3);
+        Node node4 = new Node(4);
+        Node node5 = new Node(5);
+        //构造无向图
+        node1.children.add(node2);
+        node1.children.add(node3);
+        node2.children.add(node1);
+        node2.children.add(node4);
+        node2.children.add(node5);
+        node3.children.add(node1);
+        node3.children.add(node4);
+        node3.children.add(node5);
+        node5.children.add(node2);
+        node5.children.add(node3);
+        node5.children.add(node4);
+
+        return node1;
     }
-    //图的广度遍历
-    public static void BFT(Graph start){
-        Queue<Graph> queue = new LinkedList<Graph>();
+    //图的深度遍历(允许用isAccessed)
+    public static void DFT(Node node){    //图的DFT不存在前序中序后序的问题
+        System.out.println(node.payload);
+        node.isAccessed = true;
+        for (Node child : node.children){
+            if (child.isAccessed==false){
+                DFT(child);
+            }
+        }
+    }
+    //图的深度遍历(不允许用isAccessed)
+    public static void DFT(Node node, Set<Node> accessedNodes){    //多层递归共用从顶层传下来的集合时要把这个集合变成方法参数传进去
+        System.out.println(node.payload);
+        accessedNodes.add(node);
+        for (Node child : node.children){
+            if (!accessedNodes.contains(child)){
+                DFT(child, accessedNodes);
+            }
+        }
+    }
+
+    //构造出一张有向图(for BFT)
+    public static Node buildBFTGraph(){
+        Node node1 = new Node(1);
+        Node node2 = new Node(2);
+        Node node3 = new Node(3);
+        Node node4 = new Node(4);
+        Node node5 = new Node(5);
+        //构造有向图
+        node1.children.add(node2);
+        node1.children.add(node3);
+        node2.children.add(node4);
+        node2.children.add(node5);
+        node3.children.add(node5);
+        node4.children.add(node3);
+        node4.children.add(node5);
+
+        return node1;
+    }
+    //图的广度遍历(自己写的允许用isAccessed的版本)
+    public static void BFT1(Node start){
+        Queue<Node> queue = new LinkedList<Node>();
         queue.offer(start);
         start.isAccessed = true;
         while (queue.peek()!=null){
-            Graph temp = queue.poll();
+            Node temp = queue.poll();
             System.out.println(temp.payload);
-            if (temp.leftChild!=null && temp.leftChild.isAccessed==false){
-                queue.offer(temp.leftChild);
-                temp.leftChild.isAccessed = true;
-            }
-            if (temp.rightChild!=null&& temp.rightChild.isAccessed==false){
-                queue.offer(temp.rightChild);
-                temp.rightChild.isAccessed = true;
+            for (Node child : temp.children){
+                if (child.isAccessed==false){
+                    queue.offer(child);
+                    child.isAccessed = true;
+                }
             }
         }
     }
-    //图的深度遍历
-    public static void inorderDFT(Graph start){
-        start.isAccessed = true;
-        if (start.leftChild!=null && start.leftChild.isAccessed == false){
-            Graph.inorderDFT(start.leftChild);
-        } else {
-            return;
+    //图的广度优先遍历(不允许用isAccessed)   将两种不同的集合用在了一起
+    public static void BFT2(Node start){
+        Queue<Node> queue = new LinkedList<Node>();
+        Set<Node> accessedNodes = new HashSet<Node>();
+        queue.offer(start);
+        accessedNodes.add(start);
+        while (!queue.isEmpty()){
+            Node accessingNode = queue.poll();
+            System.out.println(accessingNode.payload);
+            for (Node child : accessingNode.children){
+                if (!accessedNodes.contains(child)){
+                    queue.offer(child);
+                    accessedNodes.add(child);   //把节点拉到Queue的同时就要把它加到accessedNodes这个集合里，否则同一个节点会被重复拉入多次
+                }
+            }
         }
-        System.out.println(start.payload);
+    }
+}*/
 
-        if (start.rightChild!=null && start.rightChild.isAccessed ==false){
-            Graph.inorderDFT(start.rightChild);
-        }else {
-            return;
-        }
-    }
-}
+//Map的应用
+/*class Student{
+    public int id;
+    public String name;
+}*/
 
 //将sortedArray转成一棵平衡检索二叉树
 /*class SortedArray {
