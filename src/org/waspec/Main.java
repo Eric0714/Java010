@@ -872,6 +872,57 @@ public class Main {
     }
 }
 
+//八皇后问题尝试
+class EightQueens{
+    public static void solve8Queens(){
+        char[][] charArray = new char[8][8];
+        //准备好填充了空格的字符数组用来表示一个空白数组
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+                charArray[i][j]=' ';   //第一步把所有的行和列打成空格
+            }
+        }
+        //第一重扫描代表第一个皇后可以放的位置
+        for (int i1 = 0; i1 < 8; i1++) {
+            for (int j1 = 0; j1 < 8; j1++) {
+                //将皇后的位置标成Q
+                charArray[i1][j1]='Q';
+                //第二重扫描检查第二个皇后可以放的位置
+                for (int i2 = 0; i2 < 8; i2++) {
+                    for (int j2 = 0; j2 < 8; j2++) {
+                        //放上第一个皇后后不available的位置全部标成*
+                        if (!isAvaialbe(i1, j1, i2, j2) && charArray[i2][j2]!='Q'){
+                            charArray[i2][j2]='*';
+                        }
+
+
+
+                    }
+                }
+            }
+        }
+        //打印出最后得到的结果
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+                System.out.println(charArray[i][j]);
+            }
+        }
+    }
+
+    //判断当前位置是否处在皇后的同行同列或对角线上
+    public static boolean isAvaialbe(int queeni, int queenj, int i, int j){
+        if (i==queeni)
+            return false;
+        if (j==queenj)
+            return false;
+        if (queeni-i==queenj-j)
+            return false;
+        if (queeni-i==j-queenj)
+            return false;
+        return true;
+    }
+}
+
 //图(Graph)
 /*class Node{
     public Node(int payload) {
