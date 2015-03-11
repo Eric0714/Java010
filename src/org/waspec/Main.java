@@ -892,8 +892,12 @@ public class Main {
         /*try {
             Class reflectedClass = Class.forName("org.waspec.Student");   //在包里拿到Student这个类的镜像。如果这个类不存在时会抛异常
             Object object = reflectedClass.newInstance();       //通过拿到的类的镜像来创建一个实例，此时这个实例不知道自己到底是什么类型，只能用Object来引用它。如果这个类是接口或者是抽象类则无法创建实例，抛异常
-            Method reflectedMethod = reflectedClass.getDeclaredMethod("speak");  //在这个类的镜像里搜索是否有speak这个方法。如果找不到这个方法时会抛异常
-            reflectedMethod.invoke(object);   //告诉方法应该和哪个对象绑定
+            //调用不带参数的方法
+            Method reflectedMethod1 = reflectedClass.getDeclaredMethod("speak");  //在这个类的镜像里搜索是否有speak这个方法。如果找不到这个方法时会抛异常
+            reflectedMethod1.invoke(object);   //告诉方法应该和哪个对象绑定
+            //调用带参数的方法(自己研究出来的)
+            Method reflectedMethod2 = reflectedClass.getDeclaredMethod("add",int.class, int.class);
+            System.out.println(reflectedMethod2.invoke(object, new Integer(33), new Integer(67)));
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (InstantiationException e) {
@@ -908,11 +912,11 @@ public class Main {
 
         //反射的真正威力
         //程序的主体是固化在机器芯片上的，是不能动的，所以程序的架构只有改成反射的架构才能实现其扩展性(extensibility)
-        InputStreamReader inputStreamReader = new InputStreamReader(System.in);
+        /*InputStreamReader inputStreamReader = new InputStreamReader(System.in);
         BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
         while (true){
             //初级程序员的写法
-            /*try {
+            *//*try {
                 String choice = bufferedReader.readLine();
                 if (choice.equals("cat")){       //字符串的比较要用equal这个方法，不能用"=="
                     Cat cat = new Cat();       //cat的作用域只限于这个block
@@ -926,10 +930,10 @@ public class Main {
                 }
             } catch (IOException e) {
                 e.printStackTrace();
-            }*/
+            }*//*
 
             //中级程序员的写法
-            /*try {
+            *//*try {
                 String choice = bufferedReader.readLine();
                 Animal animal=null;       //面向接口编程
                 if (choice.equals("cat")){
@@ -942,10 +946,10 @@ public class Main {
                 animal.speak();
             } catch (IOException e) {
                 e.printStackTrace();
-            }*/
+            }*//*
 
             //高级程序员的写法
-            /*try {
+            *//*try {
                 String className = bufferedReader.readLine();
                 String classFullName = String.format("org.waspec.%s", className);   //程序具有了无限的可扩展性。虽然主程序被固化在芯片上不能改，但是动物声音的包却可以无限扩展
                 Class reflectedClass = Class.forName(classFullName);
@@ -959,16 +963,19 @@ public class Main {
                 System.out.println("亲，出错了哟");
             } catch (IllegalAccessException e) {
                 System.out.println("亲，出错了哟");
-            }*/
-        }
+            }*//*
+        }*/
     }
 }
 //反射
 /*class Student{
     public int id;
-    public static String name="H";
+    public String name;
     public void speak(){
         System.out.println("Hello");
+    }
+    public int add(int a, int b){
+        return a+b;
     }
 }*/
 
