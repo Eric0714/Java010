@@ -6,6 +6,8 @@ import sun.reflect.annotation.ExceptionProxy;
 
 import javax.swing.tree.TreeNode;
 import java.io.*;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.nio.Buffer;
 import java.sql.*;
 import java.util.*;
@@ -869,6 +871,47 @@ public class Main {
         Node.BFT1(start);
         Node.BFT2(start);*/
 
+        //反射
+        //什么不是反射？
+        /*Student student = new Student();   //new操作符创建出了一个真实的Student的实例
+        student.speak();*/                   //这个真实的实例调用这个类中的方法当然没有问题
+        //仍然使用了Student这个类，所以不是完整的反射
+        /*try {
+            Student student = Student.class.newInstance();   //把Student当数据类型用来创建实例，此时并没有用new来创建实例
+            student.speak();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }*/
+
+        try {
+            Class reflectedClass = Class.forName("org.waspec.Student");
+            Object object = reflectedClass.newInstance();
+            Method reflectedMethod = reflectedClass.getDeclaredMethod("speak");
+            reflectedMethod.invoke(object);
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }catch (NoSuchMethodException e){
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        }
+
+    }
+}
+//反射
+class Student{
+    public int id;
+    public String name;
+    public void speak(){
+        System.out.println("Hello");
     }
 }
 
