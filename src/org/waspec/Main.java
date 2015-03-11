@@ -958,11 +958,11 @@ public class Main {
             } catch (IOException e) {
                 System.out.println("亲，出错了哟");
             } catch (ClassNotFoundException e) {
-                System.out.println("亲，出错了哟");
+                System.out.println("亲，出错了哟哟");
             } catch (InstantiationException e) {
-                System.out.println("亲，出错了哟");
+                System.out.println("亲，出错了哟哟哟");
             } catch (IllegalAccessException e) {
-                System.out.println("亲，出错了哟");
+                System.out.println("亲，出错了哟哟哟哟");
             }*//*
         }*/
     }
