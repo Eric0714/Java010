@@ -914,7 +914,7 @@ public class Main {
         //程序的主体是固化在机器芯片上的，是不能动的，所以程序的架构只有改成反射的架构才能实现其扩展性(extensibility)
         /*InputStreamReader inputStreamReader = new InputStreamReader(System.in);
         BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-        while (true){
+        while (true){     //只要电池有电就应该一直运行程序
             //初级程序员的写法
             *//*try {
                 String choice = bufferedReader.readLine();
@@ -965,6 +965,7 @@ public class Main {
                 System.out.println("亲，出错了哟哟哟哟");
             }*//*
         }*/
+
     }
 }
 //反射
