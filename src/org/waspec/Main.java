@@ -953,7 +953,7 @@ public class Main {
                 String className = bufferedReader.readLine();
                 String classFullName = String.format("org.waspec.%s", className);   //程序具有了无限的可扩展性。虽然主程序被固化在芯片上不能改，但是动物声音的包却可以无限扩展
                 Class reflectedClass = Class.forName(classFullName);
-                Animal animal = (Animal)reflectedClass.newInstance();       //反射和面向接口编程相结合
+                Animal animal = (Animal)reflectedClass.newInstance();       //反射和面向接口编程相结合   用接口对实例进行强制类型转换
                 animal.speak();
             } catch (IOException e) {
                 System.out.println("亲，出错了哟");
@@ -966,8 +966,10 @@ public class Main {
             }*//*
         }*/
 
+
     }
 }
+
 //反射
 /*class Student{
     public int id;
@@ -982,7 +984,7 @@ public class Main {
 
 //反射的真正威力
 /*interface Animal{      //公开经第三厂商的API
-    void speak();
+     void speak();
 }
 
 class Cat implements Animal{
