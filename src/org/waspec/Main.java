@@ -12,6 +12,7 @@ import java.nio.Buffer;
 import java.sql.*;
 import java.util.*;
 import java.util.concurrent.ExecutionException;
+import java.util.concurrent.RunnableFuture;
 
 public class Main {
 
@@ -965,7 +966,29 @@ public class Main {
                 System.out.println("亲，出错了哟哟哟哟");
             }*//*
         }*/
+       Thread thread1 = new Thread(new ThreadWrapper());
+        thread1.setName("Foo");
+        Thread thread2 = new Thread(new ThreadWrapper());
+        thread2.setName("Bar");
+        thread1.start();
+    }
+}
+class ThreadWrapper implements Runnable{
+    @Override
+    public void run() {
+        say();
+    }
 
+    public static void say(){
+        for (int i = 0; i < 10; i++) {
+            String message = String.format("%s say %d",Thread.currentThread(), i);
+            System.out.println(message);
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }
 
