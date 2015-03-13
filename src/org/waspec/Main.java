@@ -1,5 +1,6 @@
 package org.waspec;
 
+import com.sun.javafx.scene.paint.GradientUtils;
 import com.sun.org.apache.xpath.internal.SourceTree;
 import sun.awt.TracedEventQueue;
 import sun.reflect.annotation.ExceptionProxy;
@@ -966,31 +967,106 @@ public class Main {
                 System.out.println("亲，出错了哟哟哟哟");
             }*//*
         }*/
-       Thread thread1 = new Thread(new ThreadWrapper());
+
+        //单线程
+        /*Thread mainThread = Thread.currentThread();     //获得当前线程
+        System.out.println(mainThread.getName());      //打印出线程的名字
+        try {
+            Thread.sleep(500);         //让线程睡500毫秒
+            System.out.println("Wake up!");
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }*/
+        //多线程
+        /*Thread thread1 = new Thread(new ThreadWrapper());
         thread1.setName("Foo");
         Thread thread2 = new Thread(new ThreadWrapper());
         thread2.setName("Bar");
         thread1.start();
+        try {
+            Thread.sleep(300);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        thread2.start();*/
+
+        //事件处理
+        Child child = new Child();
+        child.name = "Jim";
+        child.guardian = new Parent();
+        child.cry();
+
+        InputStreamReader inputStreamReader = new InputStreamReader(System.in);
+        BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+        System.out.println("Who do you want to select as guardian? Parent? Grandparent?");
+        try {
+            String choice = bufferedReader.readLine();
+            String fullClassName = String.format("org.waspec.%s", choice);
+            Class reflectedClass = Class.forName(fullClassName);
+            Child newChild = new Child();
+            newChild.name = "Jim";
+            newChild.guardian = (Guardian)(reflectedClass.newInstance());
+            newChild.cry();
+        } catch (IOException e) {
+            System.out.println("出错了");
+        } catch (ClassNotFoundException e) {
+            System.out.println("出错了");
+        }catch (InstantiationException e ){
+            System.out.println("出错了");
+        }catch (IllegalAccessException e ){
+            System.out.println("出错了");
+        }
+
     }
 }
-class ThreadWrapper implements Runnable{
+interface Guardian{
+    void takeCare(String name);
+}
+
+class Child{                //事件拥有者
+    public String name;
+    public Guardian guardian;        //利用接口进行松耦合
+    public void cry(){
+        System.out.println("Waaaaaa...");
+        if (this.guardian!=null){
+            this.guardian.takeCare(this.name);
+        }
+    }
+}
+
+class Parent implements Guardian{              //事件响应者
     @Override
-    public void run() {
+    public void takeCare(String childName){
+        System.out.println(childName+ ", don't cry");
+    }
+}
+
+class Grandparent implements Guardian{
+    @Override
+    public void takeCare(String childName) {
+        System.out.println(childName + ", do you want delicious snack?");
+    }
+}
+
+//多线程
+/*class ThreadWrapper implements Runnable {
+    @Override
+    public void run() {        //创建支线程的入口点
         say();
     }
 
-    public static void say(){
-        for (int i = 0; i < 10; i++) {
-            String message = String.format("%s say %d",Thread.currentThread(), i);
+    public static void say() {
+        for (int i = 0; i < 5; i++) {
+            String message = String.format("%s say %d", Thread.currentThread().getName(), i);
             System.out.println(message);
             try {
-                Thread.sleep(500);
+                Thread.sleep(1000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
     }
-}
+}*/
 
 //反射
 /*class Student{
@@ -1028,28 +1104,27 @@ class Duck implements Animal{
 }*/
 
 //八皇后问题尝试
-class EightQueens{
-    public static void solve8Queens(){
+class EightQueens {
+    public static void solve8Queens() {
         char[][] charArray = new char[8][8];
         //准备好填充了空格的字符数组用来表示一个空白数组
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
-                charArray[i][j]=' ';   //第一步把所有的行和列打成空格
+                charArray[i][j] = ' ';   //第一步把所有的行和列打成空格
             }
         }
         //第一重扫描代表第一个皇后可以放的位置
         for (int i1 = 0; i1 < 8; i1++) {
             for (int j1 = 0; j1 < 8; j1++) {
                 //将皇后的位置标成Q
-                charArray[i1][j1]='Q';
+                charArray[i1][j1] = 'Q';
                 //第二重扫描检查第二个皇后可以放的位置
                 for (int i2 = 0; i2 < 8; i2++) {
                     for (int j2 = 0; j2 < 8; j2++) {
                         //放上第一个皇后后不available的位置全部标成*
-                        if (!isAvaialbe(i1, j1, i2, j2) && charArray[i2][j2]!='Q'){
-                            charArray[i2][j2]='*';
+                        if (!isAvaialbe(i1, j1, i2, j2) && charArray[i2][j2] != 'Q') {
+                            charArray[i2][j2] = '*';
                         }
-
 
 
                     }
@@ -1065,14 +1140,14 @@ class EightQueens{
     }
 
     //判断当前位置是否处在皇后的同行同列或对角线上
-    public static boolean isAvaialbe(int queeni, int queenj, int i, int j){
-        if (i==queeni)
+    public static boolean isAvaialbe(int queeni, int queenj, int i, int j) {
+        if (i == queeni)
             return false;
-        if (j==queenj)
+        if (j == queenj)
             return false;
-        if (queeni-i==queenj-j)
+        if (queeni - i == queenj - j)
             return false;
-        if (queeni-i==j-queenj)
+        if (queeni - i == j - queenj)
             return false;
         return true;
     }
