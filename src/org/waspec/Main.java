@@ -991,20 +991,20 @@ public class Main {
         thread2.start();*/
 
         //事件处理
-        Child child = new Child();
+        /*Child child = new Child();
         child.name = "Jim";
         child.guardian = new Parent();
-        child.cry();
-
-        InputStreamReader inputStreamReader = new InputStreamReader(System.in);
+        child.cry();*/
+        //自己利用反射写的事件处理
+        /*InputStreamReader inputStreamReader = new InputStreamReader(System.in);
         BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
         System.out.println("Who do you want to select as guardian? Parent? Grandparent?");
         try {
-            String choice = bufferedReader.readLine();
+            String choice = bufferedReader.readLine();           //反射使得耦合程度更低
             String fullClassName = String.format("org.waspec.%s", choice);
             Class reflectedClass = Class.forName(fullClassName);
             Child newChild = new Child();
-            newChild.name = "Jim";
+            newChild.name = "小乖乖";
             newChild.guardian = (Guardian)(reflectedClass.newInstance());
             newChild.cry();
         } catch (IOException e) {
@@ -1015,11 +1015,13 @@ public class Main {
             System.out.println("出错了");
         }catch (IllegalAccessException e ){
             System.out.println("出错了");
-        }
+        }*/
 
     }
 }
-interface Guardian{
+
+//事件处理
+/*interface Guardian{            //把Guardian这个接口暴露给第三方就是API
     void takeCare(String name);
 }
 
@@ -1046,12 +1048,12 @@ class Grandparent implements Guardian{
     public void takeCare(String childName) {
         System.out.println(childName + ", do you want delicious snack?");
     }
-}
+}*/
 
 //多线程
 /*class ThreadWrapper implements Runnable {
     @Override
-    public void run() {        //创建支线程的入口点
+    public void run() {        //创建支线程的入口点，run为支线程充当入口点
         say();
     }
 
