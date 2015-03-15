@@ -5,7 +5,10 @@ import com.sun.org.apache.xpath.internal.SourceTree;
 import sun.awt.TracedEventQueue;
 import sun.reflect.annotation.ExceptionProxy;
 
+import javax.swing.*;
 import javax.swing.tree.TreeNode;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.io.*;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -1017,8 +1020,51 @@ public class Main {
             System.out.println("出错了");
         }*/
 
+        //事件处理常常用在桌面编程上
+        /*JFrame window = new JFrame();    //新建出一个窗口
+        window.setSize(400, 400);
+        window.setTitle("My window");
+        window.setVisible(true);
+        WindowEventHandler handler = new WindowEventHandler();
+        window.addMouseListener(handler);*/
     }
 }
+
+//事件处理的桌面编程
+/*class WindowEventHandler implements MouseListener{
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        JFrame clickedWindow = (JFrame)e.getSource();
+        clickedWindow.setTitle("I was clicked");
+        int w = clickedWindow.getWidth();
+        int h = clickedWindow.getHeight();
+        w += 10;
+        h += 10;
+        clickedWindow.setSize(w, h);
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+        JFrame clickedWindow = (JFrame)e.getSource();
+        clickedWindow.setTitle("I was pressed");
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+        JFrame clickedWindow = (JFrame)e.getSource();
+        clickedWindow.setTitle("Wa, mouse entered");
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+        JFrame clickedWindow = (JFrame)e.getSource();
+        clickedWindow.setTitle("Wa, mouse exited");
+    }
+}*/
 
 //事件处理
 /*interface Guardian{            //把Guardian这个接口暴露给第三方就是API
